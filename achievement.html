@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeurIPS 2025 Achievement | Vishal Pramanik</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: #0d1117;
+      color: #c9d1d9;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background-color: rgba(13, 17, 23, 0.95);
+      border-bottom: 1px solid #21262d;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner,
+    .section-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-title {
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+    }
+
+    .section {
+      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: #8b949e;
+      margin-bottom: 1.5rem;
+    }
+
+    .highlight {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .paper-title {
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .paper-venue {
+      font-size: 0.9rem;
+      color: #8b949e;
+      margin-bottom: 1rem;
+    }
+
+    .bullet-list {
+      margin: 0.75rem 0 1.5rem;
+      padding-left: 1.2rem;
+    }
+
+    .bullet-list li {
+      margin-bottom: 0.4rem;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 1.25rem 0 0.75rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid #30363d;
+      background-color: #161b22;
+      transition: background-color 0.15s ease, transform 0.05s ease;
+    }
+
+    .btn-primary {
+      background-color: #238636;
+      border-color: #238636;
+      color: #ffffff;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background-color: #1c2128;
+    }
+
+    .btn-primary:hover {
+      background-color: #2ea043;
+    }
+
+    .thanks {
+      margin-top: 1rem;
+    }
+
+    .hashtags {
+      margin-top: 1.25rem;
+      font-size: 0.85rem;
+      color: #8b949e;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #8b949e;
+      padding: 1.5rem 1rem 2rem;
+      border-top: 1px solid #21262d;
+      margin-top: auto;
+    }
+
+    @media (max-width: 600px) {
+      .section {
+        padding-top: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- NAVBAR -->
+    <div class="nav-bar">
+      <div class="nav-inner">
+        <div class="nav-title">Vishal Pramanik</div>
+        <div class="nav-links">
+          <!-- Change href if your main page has a different name -->
+          <a href="index.html">← Back to Home</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACHIEVEMENT SECTION -->
+    <div class="section">
+      <div class="section-inner">
+        <h1 class="section-title">NeurIPS 2025 Workshop Achievement 🎉</h1>
+        <p class="section-subtitle">
+          Thrilled to share a recent milestone from my PhD journey at Florida International University (FIU).
+        </p>
+
+        <div class="highlight">
+          <p>
+            I’m excited to share that our NeurIPS 2025 workshop
+            <strong>“Foundations of Reasoning in Language Models (FoRLM)”</strong> paper,
+          </p>
+
+          <p class="paper-title">
+            “Hessian-Enhanced Token Attribution (HETA): Interpreting Autoregressive Language Models”
+          </p>
+          <p class="paper-venue">
+            has been accepted and is now available! 🚀
+          </p>
+
+          <p>
+            Modern large language models are incredibly powerful—but they still often behave like black boxes.
+            With <strong>HETA</strong>, we take a step toward changing that by proposing a more faithful and
+            nuanced way to understand which tokens actually drive a model’s generation.
+          </p>
+
+          <ul class="bullet-list">
+            <li>Provides <strong>token-level explanations</strong> tailored for decoder-only language models.</li>
+            <li>Combines <strong>semantic flow</strong>, <strong>Hessian-based curvature</strong>, and
+                <strong>KL-divergence</strong> to capture deep, nonlinear token influence.</li>
+            <li>Introduces a curated benchmark to rigorously evaluate attribution faithfulness and
+                alignment with human judgments.</li>
+            <li>Achieves <strong>state-of-the-art attribution performance</strong> across multiple LLMs
+                and datasets.</li>
+          </ul>
+
+          <p>
+            In short, <strong>HETA</strong> aims to answer:
+            <em>“Which tokens really caused this generation?”</em> in a way that is more causally faithful,
+            context-aware, and semantically grounded.
+          </p>
+
+          <div class="btn-row">
+            <!-- Update the link if you have a direct arXiv or paper URL -->
+            <a class="btn btn-primary" href="https://lnkd.in/d-GKKSxZ" target="_blank">
+              🔗 Read the Paper
+            </a>
+          </div>
+
+          <p class="thanks">
+            Huge thanks to my amazing co-author <strong>Maisha Maliha</strong> and my PhD advisor
+            <strong>Prof. Sumit Kumar Jha</strong> for their guidance, ideas, and the many discussions
+            that shaped this work. 🙌
+          </p>
+
+          <p style="margin-top: 1rem;">
+            I’m excited to hear what the community thinks—especially from researchers working on
+            explainable AI, interpretability, and LLM safety. If you’d like to chat about applications,
+            extensions, or collaborations, feel free to reach out.
+          </p>
+
+          <p style="margin-top: 0.75rem;">
+            See you at NeurIPS 2025! 🚀
+          </p>
+
+          <p class="hashtags">
+            #NeurIPS2025 &nbsp; #FoRLM &nbsp; #ExplainableAI &nbsp; #Interpretability &nbsp;
+            #LLMs &nbsp; #NLP &nbsp; #AIResearch
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      © <span id="year"></span> Vishal Pramanik · NeurIPS 2025 Achievement
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

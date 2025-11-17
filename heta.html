@@ -65,184 +65,26 @@
       max-width: 40rem;
     }
 
-    .panel {
+    .info-box {
       background-color: #161b22;
       border: 1px solid #30363d;
       border-radius: 12px;
       padding: 1.25rem 1.5rem;
       margin-bottom: 1.5rem;
-    }
-
-    .panel-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .label {
-      font-size: 0.85rem;
-      color: #8b949e;
-      margin-bottom: 0.25rem;
-    }
-
-    textarea {
-      width: 100%;
-      min-height: 120px;
-      border-radius: 8px;
-      border: 1px solid #30363d;
-      background-color: #0d1117;
-      color: #c9d1d9;
-      padding: 0.7rem 0.8rem;
-      font-family: "JetBrains Mono", Menlo, Consolas, monospace;
       font-size: 0.9rem;
-      resize: vertical;
-      outline: none;
     }
 
-    textarea:focus {
-      border-color: #58a6ff;
-    }
-
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 0.9rem;
-      align-items: center;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.55rem 1.2rem;
-      border-radius: 999px;
-      font-size: 0.9rem;
+    .iframe-wrapper {
+      border-radius: 12px;
+      overflow: hidden;
       border: 1px solid #30363d;
       background-color: #161b22;
-      transition: background-color 0.15s ease, transform 0.05s ease, opacity 0.1s ease;
-      cursor: pointer;
-      color: #c9d1d9;
     }
 
-    .btn-primary {
-      background-color: #238636;
-      border-color: #238636;
-      color: #ffffff;
-    }
-
-    .btn:hover:not(.btn-disabled) {
-      transform: translateY(-1px);
-      background-color: #1c2128;
-    }
-
-    .btn-primary:hover:not(.btn-disabled) {
-      background-color: #2ea043;
-    }
-
-    .btn-disabled {
-      opacity: 0.6;
-      cursor: default;
-    }
-
-    .status-text {
-      font-size: 0.8rem;
-      color: #8b949e;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-      gap: 1.25rem;
-      margin-top: 1.25rem;
-    }
-
-    .mono-box {
-      background-color: #0d1117;
-      border-radius: 8px;
-      border: 1px solid #30363d;
-      padding: 0.75rem 0.9rem;
-      font-family: "JetBrains Mono", Menlo, Consolas, monospace;
-      font-size: 0.85rem;
-      white-space: pre-wrap;
-      word-break: break-word;
-      max-height: 260px;
-      overflow: auto;
-    }
-
-    .meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      font-size: 0.8rem;
-      color: #8b949e;
-      margin-bottom: 0.6rem;
-    }
-
-    .meta-pill {
-      padding: 0.15rem 0.5rem;
-      border-radius: 999px;
-      border: 1px solid #30363d;
-      background-color: #0d1117;
-    }
-
-    .tokens-container {
-      background-color: #0d1117;
-      border-radius: 8px;
-      border: 1px solid #30363d;
-      padding: 0.7rem 0.8rem;
-      font-family: "JetBrains Mono", Menlo, Consolas, monospace;
-      font-size: 0.82rem;
-      max-height: 260px;
-      overflow: auto;
-    }
-
-    .token {
-      display: inline-block;
-      margin: 0 0.12rem 0.2rem;
-      padding: 0.15rem 0.25rem;
-      border-radius: 4px;
-      transition: transform 0.05s ease;
-    }
-
-    .token:hover {
-      transform: translateY(-1px);
-    }
-
-    .token-low  { background-color: rgba(46, 160, 67, 0.18); }
-    .token-med  { background-color: rgba(46, 160, 67, 0.38); }
-    .token-high { background-color: rgba(46, 160, 67, 0.65); }
-
-    .token-score {
-      opacity: 0.7;
-      font-size: 0.7rem;
-      margin-left: 0.15rem;
-    }
-
-    .legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      font-size: 0.78rem;
-      color: #8b949e;
-      margin-top: 0.5rem;
-    }
-
-    .legend-swatch {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-
-    .legend-box {
-      width: 14px;
-      height: 10px;
-      border-radius: 3px;
-      background-color: rgba(46, 160, 67, 0.4);
-    }
-
-    .error-text {
-      margin-top: 0.5rem;
-      font-size: 0.8rem;
-      color: #f85149;
+    .heta-iframe {
+      width: 100%;
+      height: 700px; /* adjust if needed */
+      border: none;
     }
 
     .footer {
@@ -255,7 +97,8 @@
     }
 
     @media (max-width: 800px) {
-      .grid { grid-template-columns: minmax(0, 1fr); }
+      .section { padding-top: 2rem; }
+      .heta-iframe { height: 750px; }
     }
   </style>
 </head>
@@ -276,62 +119,32 @@
       <div class="section-inner">
         <h1 class="section-title">Hessian-Enhanced Token Attribution (HETA)</h1>
         <p class="section-subtitle">
-          Enter a prompt below to see how HETA attributes the model’s generation to individual tokens.
-          The computation runs on a private backend; this page only visualizes the results.
+          This page embeds the live Gradio demo of our NeurIPS 2025 FoRLM work on
+          <strong>Hessian-Enhanced Token Attribution (HETA)</strong>.
+          You can type your own input, see the model’s generation, and inspect token-level attributions.
         </p>
 
-        <!-- INPUT PANEL -->
-        <div class="panel">
-          <div class="panel-title">Try HETA on your own input</div>
-          <p class="label">Input text</p>
-          <textarea id="inputText" placeholder="Type or paste your prompt here..."></textarea>
-
-          <div class="btn-row">
-            <button id="runButton" class="btn btn-primary">Run HETA</button>
-            <span id="status" class="status-text"></span>
-          </div>
-          <div id="error" class="error-text"></div>
+        <div class="info-box">
+          <p style="margin-bottom: 0.5rem;">
+            The interactive demo is running on a separate backend (Colab + Gradio).
+            Your inputs are sent only to that demo, and the underlying HETA implementation
+            remains private.
+          </p>
+          <p>
+            If the embedded view doesn’t load, you can also open it directly:
+            <a href="https://61d3349728cee62bb4.gradio.live" target="_blank">
+              Open HETA Demo in a new tab
+            </a>.
+          </p>
         </div>
 
-        <!-- RESULTS GRID -->
-        <div class="grid">
-          <!-- Input + output -->
-          <div class="panel">
-            <div class="panel-title">Model Input & Output</div>
-            <div class="meta-row" id="metaRow"></div>
-
-            <p class="label">Input (echo)</p>
-            <div class="mono-box" id="inputBox"></div>
-
-            <p class="label" style="margin-top: 0.8rem;">Model generation</p>
-            <div class="mono-box" id="outputBox"></div>
-          </div>
-
-          <!-- Token attributions -->
-          <div class="panel">
-            <div class="panel-title">Token-Level Attribution (HETA)</div>
-            <p class="label">
-              Tokens are shaded by their HETA attribution score. Darker tokens have higher influence
-              on the model’s generation.
-            </p>
-
-            <div class="tokens-container" id="tokensBox"></div>
-
-            <div class="legend">
-              <span class="legend-swatch">
-                <span class="legend-box" style="background-color: rgba(46, 160, 67, 0.18);"></span>
-                Low attribution
-              </span>
-              <span class="legend-swatch">
-                <span class="legend-box" style="background-color: rgba(46, 160, 67, 0.38);"></span>
-                Medium
-              </span>
-              <span class="legend-swatch">
-                <span class="legend-box" style="background-color: rgba(46, 160, 67, 0.65);"></span>
-                High
-              </span>
-            </div>
-          </div>
+        <!-- EMBEDDED GRADIO APP -->
+        <div class="iframe-wrapper">
+          <iframe
+            class="heta-iframe"
+            src="https://61d3349728cee62bb4.gradio.live"
+            title="HETA Gradio Demo"
+          ></iframe>
         </div>
       </div>
     </div>
@@ -344,105 +157,6 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    const API_URL = "YOUR_API_URL_HERE"; // e.g. "https://your-domain.com/heta"
-
-    const inputText = document.getElementById("inputText");
-    const runButton = document.getElementById("runButton");
-    const statusSpan = document.getElementById("status");
-    const errorDiv = document.getElementById("error");
-
-    const inputBox = document.getElementById("inputBox");
-    const outputBox = document.getElementById("outputBox");
-    const tokensBox = document.getElementById("tokensBox");
-    const metaRow = document.getElementById("metaRow");
-
-    function scoreClass(score) {
-      if (score <= 0.33) return "token-low";
-      if (score <= 0.66) return "token-med";
-      return "token-high";
-    }
-
-    function renderResult(data) {
-      // Clear previous error
-      errorDiv.textContent = "";
-
-      // Meta
-      metaRow.innerHTML = "";
-      if (data.model_name) {
-        const span = document.createElement("span");
-        span.className = "meta-pill";
-        span.textContent = "Model: " + data.model_name;
-        metaRow.appendChild(span);
-      }
-      if (data.note) {
-        const span = document.createElement("span");
-        span.className = "meta-pill";
-        span.textContent = data.note;
-        metaRow.appendChild(span);
-      }
-
-      // Input / output
-      inputBox.textContent = data.input_text || "";
-      outputBox.textContent = data.output_text || "";
-
-      // Tokens
-      tokensBox.innerHTML = "";
-      if (Array.isArray(data.tokens)) {
-        data.tokens.forEach(function (item) {
-          const span = document.createElement("span");
-          const score = typeof item.score === "number" ? item.score : 0;
-          span.className = "token " + scoreClass(score);
-          span.textContent = item.token;
-
-          const scoreSpan = document.createElement("span");
-          scoreSpan.className = "token-score";
-          scoreSpan.textContent = score.toFixed(2);
-
-          span.appendChild(scoreSpan);
-          tokensBox.appendChild(span);
-        });
-      }
-    }
-
-    async function runHeta() {
-      const text = inputText.value.trim();
-      if (!text) {
-        errorDiv.textContent = "Please enter some text first.";
-        return;
-      }
-
-      // UI state
-      runButton.classList.add("btn-disabled");
-      runButton.disabled = true;
-      statusSpan.textContent = "Running HETA...";
-      errorDiv.textContent = "";
-
-      try {
-        const response = await fetch(API_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ input_text: text })
-        });
-
-        if (!response.ok) {
-          throw new Error("Server returned status " + response.status);
-        }
-
-        const data = await response.json();
-        renderResult(data);
-        statusSpan.textContent = "Done.";
-      } catch (err) {
-        console.error(err);
-        errorDiv.textContent = "Error running HETA. Please try again later.";
-        statusSpan.textContent = "";
-      } finally {
-        runButton.classList.remove("btn-disabled");
-        runButton.disabled = false;
-      }
-    }
-
-    runButton.addEventListener("click", runHeta);
   </script>
 </body>
 </html>

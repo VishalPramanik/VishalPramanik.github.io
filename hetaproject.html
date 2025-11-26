@@ -101,19 +101,19 @@
       border-color: var(--accent-deep);
     }
 
-    .btn-outline-success {
-      border-color: #86efac;
-      color: #15803d;
-      background-color: #dcfce7;
+    .btn-outline-secondary {
+      border-color: #cbd5f5;
+      color: #6b7280;
+      background-color: #e5e7eb;
     }
 
-    .btn-outline-success:hover {
-      background-color: #15803d;
-      border-color: #15803d;
+    .btn-outline-secondary:hover {
+      background-color: #6b7280;
       color: #ffffff;
+      border-color: #6b7280;
     }
 
-    /* Full-width hero figure */
+    /* Full-width hero figure (image, not embed) */
     .hero-figure-wrapper {
       max-width: 1200px;
       margin: 2rem auto 0;
@@ -121,7 +121,7 @@
 
     .hero-figure {
       width: 100%;
-      height: min(80vh, 800px);
+      height: auto;
       display: block;
       border: none;
       box-shadow: none;
@@ -166,18 +166,6 @@
     .resource-card:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
-    }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.15rem 0.6rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      background-color: #e0f2fe;
-      color: #0369a1;
-      margin-right: 0.3rem;
-      margin-bottom: 0.3rem;
     }
 
     pre.bibtex-block {
@@ -263,7 +251,7 @@
             <strong>Florida International University</strong>
           </p>
           <p class="hero-subtitle mb-3 text-center">
-            Preprint • Under review
+            NeurIPS 2025 Workshop on Foundations of Reasoning in Language Models (FoRLM) &mdash; Under review
           </p>
 
           <div class="cta-buttons mb-3 d-flex justify-content-center flex-wrap">
@@ -283,16 +271,16 @@
 
       <!-- Main overview figure – full width, centered, no box -->
       <div class="hero-figure-wrapper">
-        <!-- The PDF figure is in the same folder as this HTML file -->
-        <embed
-          src="HETA_fig_webpage.pdf"
-          type="application/pdf"
+        <!-- IMPORTANT: put HETA_fig_webpage.png in the SAME folder as this HTML file -->
+        <img
+          src="HETA_fig_webpage.png"
+          alt="Overview of the HETA framework"
           class="hero-figure"
         />
         <p class="fig-caption mt-2 text-center">
           Overview of HETA: semantic influence (target-conditioned attention–value rollout),
           curvature sensitivity (Hessian-based estimates), and information gain (KL divergence
-          under token masking) combine to form the final attribution score.
+          under token masking) combine to produce target-specific token attributions.
         </p>
       </div>
     </div>
@@ -307,34 +295,35 @@
       </p>
 
       <p>
-        Modern decoder-only language models generate fluent text but often behave as opaque
-        “black boxes”. Many popular attribution methods were originally developed for
-        encoder-style architectures and rely on first-order or linear approximations, which
-        struggle to explain autoregressive generation. HETA addresses this gap by providing
-        token-level attributions that are explicitly tailored to decoder-only models.
+        Decoder-only language models generate impressive text, but their decisions are
+        difficult to interpret. Most existing attribution methods were designed for
+        encoder-style architectures and rely on local, first-order approximations, which
+        struggle to capture the causal and semantic structure of autoregressive generation.
+        As a result, their explanations can be unstable and misaligned with true token
+        influence.
       </p>
       <p>
-        The framework combines three complementary signals. First, a semantic transition
-        component traces attention–value flows that end at the target position, enforcing a
-        causal gate over tokens that can influence the chosen output. Second, a Hessian-based
-        term captures second-order curvature of the target log-likelihood with respect to token
-        embeddings, revealing nonlinear and interaction effects that gradients alone may miss.
-        Third, a KL divergence term measures how the predictive distribution over the target
-        changes when individual tokens are masked, providing an information-theoretic view of
-        importance. Together, these pieces yield context-aware, causally grounded, and
-        semantically meaningful explanations for generative language models. Empirical
-        evaluations across several models and datasets show that HETA improves attribution
-        faithfulness and agreement with human annotations over prior methods.
+        HETA addresses this limitation with a token-level attribution framework tailored
+        to decoder-only language models. It combines three complementary views of
+        importance: (i) a <em>semantic transition</em> component that traces attention–value
+        flows ending at the target token, enforcing a causal gate over tokens that can
+        influence the prediction; (ii) a <em>Hessian-based sensitivity</em> term that captures
+        second-order curvature of the target log-likelihood, revealing nonlinear and
+        interaction effects beyond gradients; and (iii) an <em>information-theoretic</em> term
+        that measures how the predictive distribution changes when individual tokens are
+        masked. Together, these signals yield context-aware, causally grounded, and
+        semantically meaningful attributions that outperform strong baselines on both
+        benchmark datasets and curated evaluation setups.
       </p>
     </div>
   </section>
 
-  <!-- ARCHIVE / CODE (NO DATASET CARD) -->
+  <!-- ARCHIVE / CODE -->
   <section id="archive">
     <div class="container">
       <h2 class="section-title">Paper Archive & Code</h2>
       <p class="section-subtitle">
-        Links to the current version of the paper and the upcoming open-source release.
+        Links to the current version of the paper and the planned open-source release.
       </p>
 
       <div class="row g-4">
@@ -342,8 +331,8 @@
           <div class="resource-card p-3 h-100">
             <h5 class="mb-2">Paper PDF</h5>
             <p class="mb-3">
-              Link to the main manuscript describing the HETA framework, methodology,
-              and experimental results.
+              Main manuscript describing the HETA framework, theoretical foundations, and
+              experimental results.
             </p>
             <a href="assets/heta_paper.pdf" class="btn btn-sm btn-primary w-100">
               Download Paper
@@ -355,8 +344,8 @@
           <div class="resource-card p-3 h-100">
             <h5 class="mb-2">arXiv / Archive</h5>
             <p class="mb-3">
-              Once available, this will point to the public preprint or conference archive
-              version of the paper.
+              This link will point to the official preprint or conference archive once it
+              is public.
             </p>
             <a href="#" class="btn btn-sm btn-outline-primary w-100">
               Archive link – coming soon
@@ -368,8 +357,8 @@
           <div class="resource-card p-3 h-100">
             <h5 class="mb-2">Code</h5>
             <p class="mb-3">
-              The official implementation of HETA, including evaluation scripts and
-              reproducing the reported experiments, will be released here.
+              The official implementation of HETA, including evaluation pipelines and
+              reproducing the reported experiments, will be released after camera-ready.
             </p>
             <a href="#" class="btn btn-sm btn-outline-secondary w-100 disabled">
               Code – coming soon
@@ -385,8 +374,7 @@
     <div class="container">
       <h2 class="section-title">Interactive Demo: Input / Output</h2>
       <p class="section-subtitle">
-        This section is designed for plugging in a live Gradio or HuggingFace Space demo.
-        Replace the placeholder URL in the iframe with your hosted demo link.
+        Use this section to embed a live Gradio or HuggingFace Space demo of HETA.
       </p>
 
       <div class="row g-4">
@@ -395,18 +383,18 @@
             <div class="card-body">
               <h5 class="card-title">Try HETA Online</h5>
               <p class="card-text">
-                The interactive interface lets you type a prompt, select a target token, and
-                visualize token-level attributions. Tokens are colour-coded so that darker hues
-                correspond to higher influence on the chosen prediction.
+                The demo allows users to provide an input sequence, choose a target token,
+                and visualize token-level attributions. Tokens are coloured by their
+                HETA score, with darker green indicating higher influence.
               </p>
               <ul class="mb-3">
-                <li>Enter an input sequence for a decoder-only language model.</li>
-                <li>Choose a target token or index for attribution.</li>
-                <li>Inspect how HETA distributes credit across the context.</li>
+                <li>Type or paste a prompt for a decoder-only language model.</li>
+                <li>Select the index or position of the target token.</li>
+                <li>Inspect how HETA distributes attribution across the context.</li>
               </ul>
               <p class="mb-2">
                 <strong>Where to put your link:</strong> in the iframe on the right, replace
-                <code>YOUR_DEMO_URL_HERE</code> with your Gradio or HuggingFace Space URL.
+                <code>YOUR_DEMO_URL_HERE</code> with the URL of your Gradio app or HuggingFace Space.
               </p>
             </div>
           </div>
@@ -417,8 +405,8 @@
             <div class="card-body">
               <h5 class="card-title">Embedded Demo</h5>
               <p class="card-text">
-                The live demo can be embedded directly below. Users can interact with it
-                without leaving the project page.
+                The live demo can be embedded directly below so visitors can interact with
+                HETA without leaving this page.
               </p>
               <div class="ratio ratio-16x9 border rounded" style="background-color:#e0f2fe;">
                 <!-- TODO: Replace YOUR_DEMO_URL_HERE with your Gradio or HuggingFace Space URL -->
@@ -443,33 +431,30 @@
     <div class="container">
       <h2 class="section-title">Motivation</h2>
       <p class="section-subtitle">
-        Why existing attribution methods struggle with decoder-only language models, and
-        what HETA aims to fix.
+        Why attention maps and first-order gradients are not enough for decoder-only language models.
       </p>
 
       <p>
-        Interpreting which tokens matter for a generative model’s prediction is challenging.
-        Attention maps are visually appealing, but they track where the model “looks”, not
-        necessarily what truly affects the final logit. They can assign high weight to tokens
-        whose removal barely changes the output, and they often blur together direct and
-        indirect influence paths through deep stacks of layers and residual connections.
+        Attention-based explanations show where a model “looks” but not necessarily what
+        truly drives its predictions. Attention weights can be rearranged or perturbed
+        without significantly changing the output, and aggregated attention across heads
+        and layers often mixes direct and indirect influence in ways that are hard to
+        interpret.
       </p>
       <p>
-        Classical attribution techniques based on first-order derivatives face a different
-        limitation. Gradients and integrated gradients assume that a local linear
-        approximation around the input is informative. In highly nonlinear regions, or
-        where gradients vanish despite the function being sensitive to finite changes,
-        these methods under-report important tokens. This is especially problematic in
-        autoregressive models, where each new token is generated conditioned on a long and
-        context-dependent history.
+        First-order methods such as plain gradients, Input×Gradient, or Integrated
+        Gradients approximate influence by local linear sensitivity. In highly nonlinear
+        regions or flat regimes of the activation function, gradients can vanish even when
+        finite perturbations to a token still cause meaningful changes in the output
+        distribution. In autoregressive models, where each token is generated conditioned
+        on a long and context-dependent history, these issues become more severe.
       </p>
       <p>
-        HETA is motivated by these gaps. The framework is designed to respect causal masking
-        in decoder-only transformers, to account for curvature in the log-likelihood surface,
-        and to measure how much predictive information a token contributes when it is
-        removed. The goal is not just a heatmap, but a set of explanations that remain
-        stable, faithful, and aligned with human judgments across prompts, architectures,
-        and decoding settings.
+        HETA is motivated by the need for attributions that respect causal structure,
+        capture higher-order effects, and reflect how the output distribution actually
+        changes when context tokens are perturbed. The framework is designed to provide
+        stable, faithful, and interpretable explanations across prompts, models, and
+        decoding hyperparameters.
       </p>
     </div>
   </section>
@@ -486,7 +471,7 @@
       <div class="row g-4 mb-4">
         <div class="col-lg-6">
           <div class="card h-100">
-            <!-- Semantic flow panel placeholder (you can replace image if desired) -->
+            <!-- Replace with your real image if you have one -->
             <img
               src="assets/images/heta_semantic_flow.png"
               class="card-img-top"
@@ -495,12 +480,11 @@
             <div class="card-body">
               <h5 class="card-title">Semantic Transition Influence</h5>
               <p class="card-text">
-                HETA first traces attention–value flows that terminate at the current target
-                position under the decoder’s causal mask. This yields a semantic transition
-                vector that assigns non-negative mass only to tokens that lie on valid paths
-                to the target. The vector serves as a gate: attributions can only be assigned
-                to tokens that can, in principle, influence the prediction through the model’s
-                architecture.
+                HETA first traces attention–value flows that terminate at the target
+                position under the decoder’s causal mask. This produces a semantic
+                transition vector that assigns non-negative mass only to tokens that lie
+                on valid paths to the target. It acts as a causal gate: only tokens that
+                can structurally influence the target are eligible to receive attribution.
               </p>
             </div>
           </div>
@@ -508,7 +492,7 @@
 
         <div class="col-lg-6">
           <div class="card h-100">
-            <!-- Curvature & KL panel placeholder -->
+            <!-- Replace with your real image if you have one -->
             <img
               src="assets/images/heta_hessian_kl.png"
               class="card-img-top"
@@ -517,13 +501,13 @@
             <div class="card-body">
               <h5 class="card-title">Curvature & Information Gain</h5>
               <p class="card-text">
-                To capture nonlinear effects, HETA estimates token-wise sensitivity using
-                Hessian–vector products and Hutchinson-style estimators, avoiding explicit
+                To capture nonlinear effects, HETA estimates token-wise sensitivity from
+                Hessian–vector products using a Hutchinson estimator, avoiding explicit
                 construction of the full Hessian. In parallel, it measures how the target
                 distribution changes when each token is masked, via KL divergence between
-                the original and perturbed predictions. The final attribution score multiplies
-                the causal gate with a weighted sum of curvature and information terms,
-                producing a target-conditioned importance score for each token.
+                the original and perturbed predictions. The final score multiplies the
+                causal gate with a weighted combination of curvature and information terms,
+                yielding a target-conditioned importance measure for each token.
               </p>
             </div>
           </div>
@@ -533,7 +517,7 @@
       <div class="row g-4">
         <div class="col-lg-12">
           <div class="card h-100">
-            <!-- Full pipeline placeholder -->
+            <!-- Replace with your real image if you have one -->
             <img
               src="assets/images/heta_pipeline_full.png"
               class="card-img-top"
@@ -542,13 +526,11 @@
             <div class="card-body">
               <h5 class="card-title">Putting It All Together</h5>
               <p class="card-text">
-                The unified pipeline produces non-negative, target-specific attribution scores
-                for every token in the context. The design balances three perspectives:
-                structural (which tokens are causally connected), geometric (how the
-                log-likelihood curve bends around the input), and information-theoretic
-                (how much probability mass shifts when a token is removed). This combination
-                leads to explanations that are both empirically robust and theoretically
-                grounded for decoder-only language models.
+                The overall pipeline yields non-negative, target-specific attribution scores
+                for every token in the context. By combining structural (causal paths),
+                geometric (curvature), and information-theoretic (KL divergence) views,
+                HETA provides explanations that are both theoretically grounded and
+                empirically robust for decoder-only language models.
               </p>
             </div>
           </div>
@@ -562,14 +544,13 @@
     <div class="container">
       <h2 class="section-title">Results</h2>
       <p class="section-subtitle">
-        Summary of experimental findings across models, benchmarks, and curated evaluation
-        datasets.
+        Summary of experimental findings across models, benchmarks, and curated evaluation datasets.
       </p>
 
       <div class="row g-4">
         <div class="col-lg-6">
           <div class="card h-100">
-            <!-- Benchmark results placeholder -->
+            <!-- Replace with your actual benchmark figure -->
             <img
               src="assets/images/heta_benchmarks.png"
               class="card-img-top"
@@ -578,12 +559,11 @@
             <div class="card-body">
               <h5 class="card-title">Attribution Faithfulness</h5>
               <p class="card-text">
-                HETA is evaluated on benchmark datasets such as LongRA, TellMeWhy, and
-                WikiBio using multiple decoder-only language models (including mid-sized and
-                large transformers). On perturbation-based metrics like Soft-NC and Soft-NS,
-                HETA consistently achieves higher scores than gradient-based, attention-only,
-                and recent attribution baselines. The gains are especially pronounced on
-                tasks that require long-range reasoning and multi-sentence context.
+                On benchmark datasets such as LongRA, TellMeWhy, and WikiBio, HETA
+                achieves higher Soft-NC and Soft-NS scores than gradient-based, attention
+                rollout, and recent attribution baselines. The improvements are especially
+                strong for long-range reasoning tasks, where capturing deep context
+                dependencies is crucial.
               </p>
             </div>
           </div>
@@ -591,7 +571,7 @@
 
         <div class="col-lg-6">
           <div class="card h-100">
-            <!-- Curated dataset / robustness placeholder -->
+            <!-- Replace with your curated dataset / robustness figure -->
             <img
               src="assets/images/heta_curated_dataset.png"
               class="card-img-top"
@@ -600,13 +580,12 @@
             <div class="card-body">
               <h5 class="card-title">Alignment & Robustness</h5>
               <p class="card-text">
-                A curated evaluation set combines narrative passages with question–answer
-                pairs to test whether attribution mass concentrates on truly diagnostic
-                evidence rather than distractors. Using a Dependent Sentence Attribution
-                metric, HETA assigns substantially more importance to answer-bearing spans
-                than competing methods. Additional analyses show that HETA’s attributions
-                remain stable under input noise, active/passive rephrasings, and changes to
-                decoding hyperparameters, whereas many baselines fluctuate significantly.
+                A curated evaluation set combining narrative and science QA passages is
+                used to probe whether attribution mass concentrates on truly diagnostic
+                evidence. Using the Dependent Sentence Attribution (DSA) metric, HETA
+                substantially outperforms all baselines, while also showing higher
+                stability under input noise, syntactic rephrasings, and changes in decoding
+                hyperparameters.
               </p>
             </div>
           </div>

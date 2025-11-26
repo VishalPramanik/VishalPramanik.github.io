@@ -112,6 +112,7 @@
       border: 1px solid #30363d;
       background-color: #161b22;
       transition: background-color 0.15s ease, transform 0.05s ease;
+      cursor: pointer;
     }
 
     .btn-primary {
@@ -178,7 +179,7 @@
       font-size: 0.85rem;
     }
 
-    /* Projects */
+    /* Projects grid (not used yet but kept if needed later) */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -233,44 +234,12 @@
       font-size: 0.95rem;
     }
 
-    /* Project Webpages – Tabs */
-    .project-tabs {
-      margin-top: 1rem;
-    }
-
-    .tab-buttons {
+    /* Project Webpages buttons */
+    .project-buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .tab-button {
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid #30363d;
-      background-color: #161b22;
-      color: #c9d1d9;
-      font-size: 0.9rem;
-      cursor: pointer;
-    }
-
-    .tab-button:hover {
-      background-color: #1c2128;
-    }
-
-    .tab-button.active {
-      background-color: #238636;
-      border-color: #238636;
-    }
-
-    .tab-content {
-      display: none;
-      font-size: 0.95rem;
-    }
-
-    .tab-content.active {
-      display: block;
+      gap: 0.75rem;
+      margin-top: 1rem;
     }
 
     /* Footer */
@@ -304,7 +273,6 @@
     <div class="nav-bar">
       <div class="nav-inner">
         <div class="nav-logo">
-          <!-- Change this to your name or logo -->
           <a href="#top"><strong>Vishal Pramanik</strong></a>
         </div>
         <div class="nav-links">
@@ -315,6 +283,7 @@
           <a href="#publications">Publications</a>
           <a href="#skills">Skills</a>
           <a href="#achievements">Achievements</a>
+          <a href="#project-webpages">Projects</a>
           <a href="#contact">Contact</a>
         </div>
       </div>
@@ -332,7 +301,6 @@
             </p>
           </div>
 
-          <!-- Avatar / Initials -->
           <div class="hero-avatar">
             <img src="vishal.png" alt="Vishal Pramanik" style="width: 150px; height: 150px; border-radius: 60%; object-fit: cover;">
           </div>
@@ -358,6 +326,7 @@
       </div>
     </div>
 
+    <!-- EDUCATION SECTION -->
     <div class="section" id="education">
       <div class="section-inner">
         <h2 class="section-title">Education</h2>
@@ -381,11 +350,10 @@
           <p class="year">2015 - 2019</p>
           <p class="gpa">GPA: 8.9/10.0</p>
         </div>
-        
       </div>
     </div>
 
-
+    <!-- RESEARCH EXPERIENCE -->
     <div class="section" id="research">
       <div class="section-inner">
         <h2 class="section-title">Research Experience</h2>
@@ -418,10 +386,10 @@
             <li>Published research paper "Hey AI, Can You Grade My Essay?: Automatic Essay Grading" in ICAAAIML 2025 - Springer Proceeding</li>
           </ul>
         </div>
-        
       </div>
     </div>
 
+    <!-- TECHNICAL EXPERIENCE -->
     <div class="section" id="experience">
       <div class="section-inner">
         <h2 class="section-title">Technical Experience</h2>
@@ -438,11 +406,10 @@
             <li>Optimized server overclocking by adapting technology from standalone workstations, enhancing system throughput and performance</li>
           </ul>
         </div>
-        
       </div>
     </div>
-        
 
+    <!-- PUBLICATIONS -->
     <div class="section" id="publications">
       <div class="section-inner">
         <h2 class="section-title">Publications</h2>
@@ -500,10 +467,9 @@
           <p class="authors">Vishal Pramanik, Maisha Maliha, and Sumit Kumar Jha</p>
           <p class="venue">IEEE National Aerospace and Electronics Conference (NAECON), 2024 | <a href="#" target="_blank">PDF</a></p>
         </div>
-        
       </div>
     </div>
-        
+
     <!-- SKILLS SECTION -->
     <div class="section" id="skills">
       <div class="section-inner">
@@ -530,6 +496,7 @@
       </div>
     </div>
 
+    <!-- AWARDS & ACHIEVEMENTS -->
     <div class="section" id="achievements">
       <div class="section-inner">
         <h2 class="section-title">Awards & Achievements</h2>
@@ -553,32 +520,28 @@
     <div class="section" id="project-webpages">
       <div class="section-inner">
         <h2 class="section-title">Project Webpages</h2>
-        <div class="project-tabs">
-          <div class="tab-buttons">
-            <button class="tab-button active" data-tab="data-attribution">Data Attribution</button>
-            <button class="tab-button" data-tab="near-hallucination-score">NEAR Hallucination Score</button>
-          </div>
-          <div class="tab-contents">
-            <div class="tab-content active" id="data-attribution">
-              <p>
-                <a href="https://vishalpramanik.github.io/hetaproject.html" target="_blank">
-                  Open Data Attribution Project
-                </a>
-              </p>
-            </div>
-            <div class="tab-content" id="near-hallucination-score">
-              <p>
-                <a href="https://vishalpramanik.github.io/NEARproject.html" target="_blank">
-                  Open NEAR Hallucination Score Project
-                </a>
-              </p>
-            </div>
-          </div>
+        <p>Explore interactive webpages for my recent research work:</p>
+        <div class="project-buttons">
+          <a
+            class="btn btn-primary"
+            href="https://vishalpramanik.github.io/hetaproject.html"
+            target="_blank"
+          >
+            Data Attribution
+          </a>
+
+          <a
+            class="btn btn-primary"
+            href="https://vishalpramanik.github.io/NEARproject.html"
+            target="_blank"
+          >
+            NEAR Hallucination Score
+          </a>
         </div>
       </div>
     </div>
 
-   <!-- CONTACT SECTION -->
+    <!-- CONTACT SECTION -->
     <div class="section" id="contact">
       <div class="section-inner">
         <h2 class="section-title">Contact</h2>
@@ -615,25 +578,9 @@
     </div>
   </div>
 
-  <!-- Small script to auto-update year & handle tabs -->
+  <!-- Small script to auto-update year -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    const tabButtons = document.querySelectorAll(".tab-button");
-    const tabContents = document.querySelectorAll(".tab-content");
-
-    tabButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        const targetId = button.getAttribute("data-tab");
-
-        tabButtons.forEach(btn => btn.classList.remove("active"));
-        tabContents.forEach(content => content.classList.remove("active"));
-
-        button.classList.add("active");
-        const target = document.getElementById(targetId);
-        if (target) target.classList.add("active");
-      });
-    });
   </script>
 </body>
 </html>

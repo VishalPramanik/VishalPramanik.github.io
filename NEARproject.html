@@ -1,1 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shapley NEAR | Research Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg-light: #e6f3ff;
+      --bg-lighter: #f5fbff;
+      --card-bg: #ffffff;
+      --accent: #0ea5e9;
+      --accent-soft: #bae6fd;
+      --accent-deep: #0369a1;
+      --text-muted: #64748b;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background-color: var(--bg-light);
+    }
+
+    .navbar {
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.1);
+      background: linear-gradient(90deg, #ffffff, #e0f2fe);
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .nav-link:hover {
+      color: var(--accent-deep) !important;
+    }
+
+    .hero-section {
+      padding: 4.5rem 0 2.5rem;
+      background: radial-gradient(circle at top left, #dbeafe, #e0f2fe 50%, #f5fbff 100%);
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 3.8vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+
+    .author-list a {
+      text-decoration: none;
+      color: #0f172a;
+    }
+
+    .author-list a:hover {
+      text-decoration: underline;
+    }
+
+    .badge-equal {
+      font-size: 0.7rem;
+      background-color: #e0f2fe;
+      color: #0f172a;
+    }
+
+    .cta-buttons .btn {
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-deep);
+      border-color: var(--accent-deep);
+    }
+
+    .btn-outline-primary {
+      color: var(--accent-deep);
+      border-color: var(--accent-soft);
+      background-color: rgba(191, 219, 254, 0.25);
+    }
+
+    .btn-outline-primary:hover {
+      background-color: var(--accent-deep);
+      color: #ffffff;
+      border-color: var(--accent-deep);
+    }
+
+    .btn-outline-secondary {
+      border-color: #cbd5f5;
+      color: #6b7280;
+      background-color: #e5e7eb;
+    }
+
+    .btn-outline-secondary:hover {
+      background-color: #6b7280;
+      color: #ffffff;
+      border-color: #6b7280;
+    }
+
+    /* Figure in Abstract section */
+    .heta-figure-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 1.5rem auto 2rem;
+      text-align: center;
+    }
+
+    .heta-figure {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+      border: none;
+      box-shadow: none;
+      background: transparent;
+    }
+
+    section {
+      padding: 3rem 0;
+      background-color: var(--bg-light);
+    }
+
+    section:nth-of-type(even) {
+      background-color: var(--bg-lighter);
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .fig-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .resource-card {
+      border-radius: 0.9rem;
+      border: 1px solid var(--accent-soft);
+      background-color: var(--card-bg);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      height: 100%;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+    }
+
+    pre.bibtex-block {
+      background-color: #0f172a;
+      color: #e5e7eb;
+      border-radius: 0.6rem;
+      padding: 1rem 1.2rem;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      border: 1px solid #1f2937;
+    }
+
+    footer {
+      padding: 2rem 0 2.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: linear-gradient(180deg, #e0f2fe, #ffffff);
+      border-top: 1px solid #dbeafe;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="#">Shapley NEAR</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#abstract">Paper</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#archive">Archive & Code</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#demo">Demo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#motivation">Motivation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#overview">Method</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#results">Results</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#bibtex">BibTeX</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO / TITLE -->
+  <header class="hero-section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12">
+          <h1 class="hero-title mb-3 text-center">
+            Fact or Hallucination? An Entropy-Based Framework for Attention-Wise Usable Information in LLMs
+          </h1>
+          <p class="hero-subtitle mb-2 text-center">
+            <strong>Shapley NEAR</strong>: Norm-basEd Attention-wise usable infoRmation
+          </p>
+          <p class="hero-subtitle mb-2 text-center">
+            <span class="author-list">
+              <!-- Replace with real author names if desired -->
+              <a href="#">Anonymous Author(s)</a>
+            </span>
+          </p>
+          <p class="hero-subtitle mb-1 text-center">
+            <!-- Replace with real affiliation -->
+            <strong>Affiliation</strong>
+          </p>
+
+          <div class="cta-buttons mb-3 d-flex justify-content-center flex-wrap">
+            <!-- Update href targets to your real links -->
+            <a href="near_paper.pdf" class="btn btn-primary" target="_blank">
+              Paper (PDF)
+            </a>
+            <!-- Replace YOUR_ARCHIVE_LINK_HERE with the link you mentioned -->
+            <a href="YOUR_ARCHIVE_LINK_HERE" class="btn btn-outline-primary" target="_blank">
+              arXiv / Archive
+            </a>
+            <!-- Optional: code link, keep disabled until ready -->
+            <a href="#" class="btn btn-outline-secondary disabled">
+              Code – coming soon
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABSTRACT (WITH OVERVIEW FIGURE) -->
+  <section id="abstract">
+    <div class="container">
+      <h2 class="section-title">Abstract</h2>
+
+      <div class="heta-figure-container">
+        <!-- Optional overview figure for the method -->
+        <img
+          src="near_overview.png"
+          alt="Overview of the Shapley NEAR framework for hallucination detection"
+          class="heta-figure img-fluid"
+        />
+        <p class="fig-caption mt-2 text-center">
+          Overview of Shapley NEAR: an entropy-based attribution pipeline that tracks attention-wise
+          usable information across layers and heads, then uses Shapley values to assign sentence-level
+          scores indicating hallucination risk.
+        </p>
+      </div>
+
+      <p>
+        Large language models often generate outputs that are fluent and confident but factually wrong,
+        posing serious safety concerns in high-stakes applications. Existing hallucination detection methods
+        typically depend on final-layer logits, shallow uncertainty measures, or post-hoc textual checks, and
+        therefore ignore the rich semantic signals distributed across layers and attention heads inside the model.
+      </p>
+      <p>
+        Shapley NEAR addresses this gap with an entropy-based attribution framework grounded in Shapley
+        values. It measures how much usable information each context sentence contributes to answering a
+        question by decomposing attention-driven information gain across all layers and heads. Higher scores
+        correspond to lower hallucination risk. The framework further separates two error modes:
+        <em>parametric hallucinations</em>, when pre-trained knowledge overrides the context, and
+        <em>context-induced hallucinations</em>, when misleading context spuriously reduces uncertainty.
+        A test-time head clipping strategy prunes attention heads that consistently produce overconfident,
+        context-agnostic behavior, improving reliability without any additional training or architectural
+        modifications.
+      </p>
+    </div>
+  </section>
+
+  <!-- ARCHIVE / CODE -->
+  <section id="archive">
+    <div class="container">
+      <h2 class="section-title">Paper Archive & Code</h2>
+      <p class="section-subtitle">
+        Links to the current version of the paper, public preprint, and planned code release.
+      </p>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="resource-card p-3 h-100">
+            <h5 class="mb-2">Paper PDF</h5>
+            <p class="mb-3">
+              Main manuscript describing Shapley NEAR, including the theoretical framework,
+              entropy-based attribution, and extensive empirical evaluation.
+            </p>
+            <a href="near_paper.pdf" class="btn btn-sm btn-primary w-100" target="_blank">
+              Download Paper
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="resource-card p-3 h-100">
+            <h5 class="mb-2">arXiv / Archive</h5>
+            <p class="mb-3">
+              Public preprint or conference version of the paper. Replace this link with the
+              final arXiv or proceedings entry once available.
+            </p>
+            <a href="YOUR_ARCHIVE_LINK_HERE" class="btn btn-sm btn-outline-primary w-100" target="_blank">
+              View on arXiv / Archive
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="resource-card p-3 h-100">
+            <h5 class="mb-2">Code</h5>
+            <p class="mb-3">
+              Planned open-source implementation of Shapley NEAR, including hallucination detection
+              pipelines, NEAR score computation, and head clipping utilities.
+            </p>
+            <a href="#" class="btn btn-sm btn-outline-secondary w-100 disabled">
+              Code – coming soon
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO (OPTIONAL / PLACEHOLDER) -->
+  <section id="demo">
+    <div class="container">
+      <h2 class="section-title">Interactive Demo (Optional)</h2>
+      <p class="section-subtitle">
+        Placeholder section for a future Shapley NEAR demo. You can plug in a Gradio or web demo link here.
+      </p>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Demo Description</h5>
+              <p class="card-text">
+                A typical demo would let users provide a context and question, run the LLM to generate
+                an answer, and visualize Shapley NEAR scores over context sentences or segments. High
+                NEAR scores indicate that the model is using the context in a stable, information-rich way.
+              </p>
+              <ul class="mb-3">
+                <li>Enter a passage and a question.</li>
+                <li>Generate the model’s answer.</li>
+                <li>Inspect NEAR scores for each context segment and attention head.</li>
+              </ul>
+              <p class="mb-0">
+                When you have a live demo URL, you can link it
+                <a href="#" target="_blank" rel="noopener noreferrer">here</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Embedded Demo</h5>
+              <p class="card-text">
+                You can embed a web demo below using an iframe (for example, a Gradio or Streamlit app)
+                so visitors can experiment with Shapley NEAR directly from this page.
+              </p>
+              <div class="ratio ratio-16x9 border rounded" style="background-color:#e0f2fe;">
+                <!-- Replace src with your actual demo URL when ready -->
+                <iframe
+                  src="#"
+                  title="Shapley NEAR Demo"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  style="border:0;"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOTIVATION -->
+  <section id="motivation">
+    <div class="container">
+      <h2 class="section-title">Motivation</h2>
+      <p class="section-subtitle">
+        Why we need attention-wise usable information, not just final-layer logits or semantic entropy.
+      </p>
+
+      <p>
+        Hallucinations occur when models produce confident but incorrect answers. Many existing methods
+        estimate uncertainty from final token probabilities, semantic diversity of multiple generations, or
+        simple entropy of the output distribution. However, these measures are blind to where information
+        is processed inside the model and how attention heads interact with the context.
+      </p>
+      <p>
+        At the same time, prior work on V-usable information and pointwise V-information has shown that
+        classical mutual information does not capture what a computationally bounded model can actually
+        extract from its input. Building on this perspective, Shapley NEAR focuses on attention layers,
+        which are more closely tied to in-context reasoning than feed-forward layers. By measuring how
+        attention outputs change the model’s entropy over the vocabulary, we obtain a more faithful notion
+        of “usable information” for answering a question.
+      </p>
+      <p>
+        This leads to a principled way to detect when the model is genuinely supported by the context versus
+        when it is relying on brittle parametric knowledge or misleading fragments, helping to improve
+        trustworthiness in question answering and retrieval-augmented generation.
+      </p>
+    </div>
+  </section>
+
+  <!-- METHOD OVERVIEW -->
+  <section id="overview">
+    <div class="container">
+      <h2 class="section-title">Method Overview</h2>
+      <p class="section-subtitle">
+        From norm-based attention information to Shapley NEAR scores and head clipping.
+      </p>
+
+      <div class="row g-4 mb-4">
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Norm-Based Attention Information</h5>
+              <p class="card-text">
+                For each layer and attention head, Shapley NEAR extracts the attention output at the
+                final question token and uses its vector norm as a proxy for information flow through
+                that head. A softmax over this vector defines a vocabulary distribution, from which the
+                entropy at the final token is computed.
+              </p>
+              <p class="card-text">
+                Information gain is then defined as the reduction in entropy compared to a null context,
+                where the model relies only on its parametric knowledge. Summing these gains across
+                layers and heads yields an attention-wise measure of how much the context reduces
+                uncertainty about the answer.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Shapley Sentence Attribution</h5>
+              <p class="card-text">
+                The context is segmented into sentences (or spans), and Shapley NEAR uses Shapley
+                values to fairly attribute the total information gain to each segment. For every subset
+                of sentences, it considers the marginal effect of adding a given sentence on the overall
+                information gain.
+              </p>
+              <p class="card-text">
+                Averaging these marginal contributions over random permutations yields a sentence-level
+                Shapley NEAR score. High scores indicate that the sentence consistently helps reduce
+                uncertainty; near-zero or negative scores reveal unhelpful or misleading context.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-12">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Properties, Bounds, and Head Clipping</h5>
+              <p class="card-text">
+                Shapley NEAR enjoys several desirable properties: it is bounded in terms of model depth,
+                number of heads, and vocabulary size, respects symmetry between equivalent sentences,
+                and exhibits diminishing returns for redundant context. A Monte Carlo Shapley estimator
+                provides high-probability error bounds as the number of sampled permutations increases.
+              </p>
+              <p class="card-text">
+                The same attribution analysis also exposes attention heads that consistently exhibit
+                negative information gain, signaling parametric hallucination. By clipping these heads
+                at test time, the authors show that it is possible to improve hallucination detection and
+                answer reliability without any retraining, connecting interpretability directly to control
+                over internal model behavior.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS SECTION -->
+  <section id="results">
+    <div class="container">
+      <h2 class="section-title">Results</h2>
+      <p class="section-subtitle">
+        Performance on QA benchmarks and examples of Shapley NEAR attributions.
+      </p>
+
+      <!-- TWO RESULT IMAGES: replace src with your near_* image filenames -->
+      <div class="row g-4 mb-4">
+        <div class="col-md-6 text-center">
+          <img
+            src="near_1.png"
+            alt="Shapley NEAR vs baselines on hallucination detection benchmarks"
+            class="img-fluid rounded shadow-sm"
+            style="max-width: 100%; height: auto;"
+          />
+          <p class="fig-caption mt-2">
+            Shapley NEAR compared to baseline methods (e.g., P(True), Pointwise V-Information,
+            Usable LI, Semantic Entropy, Loopback Lens, INSIDE) across multiple QA datasets.
+          </p>
+        </div>
+        <div class="col-md-6 text-center">
+          <img
+            src="near_2.png"
+            alt="Layer- and head-wise analysis of information gain and hallucination types"
+            class="img-fluid rounded shadow-sm"
+            style="max-width: 100%; height: auto;"
+          />
+          <p class="fig-caption mt-2">
+            Examples of attention-wise information gain, emergence of parametric and context-induced
+            hallucinations, and the impact of Shapley aggregation and head clipping.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Hallucination Detection Performance</h5>
+              <p class="card-text">
+                Across four QA benchmarks (CoQA, QuAC, SQuAD v2.0, and TriviaQA) and three
+                LLMs (Qwen2.5-3B, LLaMA3.1-8B, OPT-6.7B), Shapley NEAR consistently outperforms
+                strong baselines in AUROC, Kendall’s τ, and Pearson correlation. Improvements
+                over methods like INSIDE, Loopback Lens, and Semantic Entropy range from
+                roughly 8–13% in AUROC and 10–15% in rank correlation metrics.
+              </p>
+              <p class="card-text">
+                The gains are especially clear on SQuAD, where models find the dataset relatively
+                easier, and NEAR’s fine-grained attention-wise signals translate into more accurate
+                separation between trustworthy and hallucinated answers.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Ablations, Thresholds, and Head Clipping</h5>
+              <p class="card-text">
+                Ablation studies show that (i) aggregating across all layers is crucial, since usable
+                information accumulates progressively and is not confined to the final layer, and
+                (ii) Shapley aggregation substantially improves ranking quality compared to a greedy
+                information gain baseline.
+              </p>
+              <p class="card-text">
+                The authors also study how to threshold NEAR scores, finding that a first-quartile
+                (Q1) threshold gives robust separation between answerable and hallucinated cases
+                across models and datasets. Finally, pruning heads with strongly negative information
+                gain further improves AUROC, accuracy, and ROUGE-L, highlighting the practical
+                value of NEAR-driven head clipping.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIBTEX -->
+  <section id="bibtex">
+    <div class="container">
+      <h2 class="section-title">BibTeX</h2>
+      <p class="section-subtitle">
+        Citation information can be added here once the paper is public and de-anonymized.
+      </p>
+
+      <pre class="bibtex-block">
+@inproceedings{NEAR2025,
+  title     = {Fact or Hallucination? An Entropy-Based Framework
+               for Attention-Wise Usable Information in LLMs},
+  author    = {To be updated},
+  booktitle = {To be updated},
+  year      = {2025}
+}
+      </pre>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row gy-2 align-items-center">
+        <div class="col-md-8">
+          <span>
+            © <span id="year"></span> Shapley NEAR Authors. All rights
+            reserved. Webpage adapted by <strong>Your Name</strong>.
+          </span>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <span>
+            Template adapted from open-source academic project pages.
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // set footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 

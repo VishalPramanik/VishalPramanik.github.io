@@ -292,7 +292,7 @@
         applications. Many existing hallucination detectors only use final-layer logits or post-hoc textual checks,
         ignoring the semantic structure encoded in intermediate attention blocks. Shapley NEAR addresses this by
         defining an entropy-based attribution framework over all layers and heads, grounded in V-usable information
-        and Shapley value theory. :contentReference[oaicite:1]{index=1}
+        and Shapley value theory.
       </p>
       <p>
         The method converts norm-based attention outputs into head- and layer-wise information gain, comparing
@@ -430,7 +430,7 @@
         especially problematic in domains where factual accuracy is crucial. Token-level entropy signals and
         semantic diversity of multiple generations can be useful, but extending them cleanly to sentence-level
         decisions in autoregressive models is non-trivial, and they typically overlook what happens inside the
-        network. :contentReference[oaicite:2]{index=2}
+        network.
       </p>
       <p>
         Prior work on V-usable information and pointwise V-information showed that classical mutual information
@@ -528,38 +528,39 @@
     <div class="container">
       <h2 class="section-title">Results</h2>
       <p class="section-subtitle">
-        Performance on QA benchmarks, Shapley ablations, threshold analysis, and head clipping.
+        Performance on QA benchmarks, Shapley ablations, threshold analysis, and head clipping, along with
+        concrete examples of NEAR on answerable and unanswerable questions.
       </p>
 
-      <!-- TWO RESULT IMAGES; replace src with your NEAR images (near_*.png / .jpg) -->
+      <!-- TWO EXAMPLE IMAGES: POSITIVE (ANSWERABLE) & NEGATIVE (UNANSWERABLE), SIDE BY SIDE -->
       <div class="row g-4 mb-4">
         <div class="col-md-6 text-center">
           <img
-            src="near_1.png"
-            alt="Shapley NEAR vs baseline hallucination detectors across QA datasets"
+            src="near_answerable.jpg"
+            alt="Positive NEAR example where the question is answerable from the context"
             class="img-fluid rounded shadow-sm"
             style="max-width: 100%; height: auto;"
           />
           <p class="fig-caption mt-2">
-            Example plots comparing NEAR with baselines such as P(True), PVI, Usable LI, Semantic Entropy,
-            Loopback Lens, and INSIDE on CoQA, QuAC, SQuAD v2.0, and TriviaQA.
+            Positive NEAR example: the question is answerable from the context. The NEAR visualization shows
+            high scores on the supporting sentences, indicating strong, context-grounded usable information.
           </p>
         </div>
         <div class="col-md-6 text-center">
           <img
-            src="near_2.png"
-            alt="Information gain analysis, Shapley aggregation, and head-level behavior"
+            src="near_unanswerable.jpg"
+            alt="Negative NEAR example where the question is not answerable from the context"
             class="img-fluid rounded shadow-sm"
             style="max-width: 100%; height: auto;"
           />
           <p class="fig-caption mt-2">
-            Visualizations of Shapley aggregation benefits, the identification of parametric and
-            context-induced hallucinations, and the impact of pruning heads with consistently negative
-            information gain.
+            Negative NEAR example: the question is not answerable from the context. NEAR assigns low scores to
+            all sentences, signalling a high risk of hallucination despite the model's fluent response.
           </p>
         </div>
       </div>
 
+      <!-- TEXT RESULTS (UNCHANGED) -->
       <div class="row g-4">
         <div class="col-lg-6">
           <div class="card h-100">
@@ -568,7 +569,7 @@
               <p class="card-text">
                 NEAR is evaluated on CoQA, QuAC, SQuAD v2.0 (unanswerable subset), and TriviaQA (rc-nocontext)
                 using Qwen2.5-3B, LLaMA3.1-8B, and OPT-6.7B. Metrics include AUROC, Kendall’s τ, and Pearson
-                correlation between NEAR scores and ground-truth answerability labels. :contentReference[oaicite:3]{index=3}
+                correlation between NEAR scores and ground-truth answerability labels.
               </p>
               <p class="card-text">
                 Across all models and datasets, NEAR consistently outperforms strong baselines, often surpassing

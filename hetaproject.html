@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Header Project | Research Page</title>
+  <title>HETA Project | Research Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Bootstrap CSS -->
@@ -12,15 +12,25 @@
   />
 
   <style>
+    :root {
+      --bg-light: #e6f3ff;
+      --bg-lighter: #f5fbff;
+      --card-bg: #ffffff;
+      --accent: #0ea5e9;
+      --accent-soft: #bae6fd;
+      --accent-deep: #0369a1;
+      --text-muted: #64748b;
+    }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
-      background-color: #f5f5f7;
+      background-color: var(--bg-light);
     }
 
     .navbar {
-      box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08);
-      background-color: #ffffff;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.1);
+      background: linear-gradient(90deg, #ffffff, #e0f2fe);
     }
 
     .nav-link {
@@ -28,29 +38,30 @@
       font-weight: 500;
     }
 
+    .nav-link:hover {
+      color: var(--accent-deep) !important;
+    }
+
     .hero-section {
       padding: 4.5rem 0 2.5rem;
-      background: linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #f5f5f7 60%,
-        #f5f5f7 100%
-      );
+      background: radial-gradient(circle at top left, #dbeafe, #e0f2fe 50%, #f5fbff 100%);
     }
 
     .hero-title {
       font-size: clamp(2.4rem, 4vw, 3rem);
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -0.03em;
+      color: #0f172a;
     }
 
     .hero-subtitle {
       font-size: 1.05rem;
-      color: #6b7280;
+      color: var(--text-muted);
     }
 
     .author-list a {
       text-decoration: none;
+      color: #0f172a;
     }
 
     .author-list a:hover {
@@ -59,8 +70,8 @@
 
     .badge-equal {
       font-size: 0.7rem;
-      background-color: #e5e7eb;
-      color: #4b5563;
+      background-color: #e0f2fe;
+      color: #0f172a;
     }
 
     .cta-buttons .btn {
@@ -68,76 +79,113 @@
       margin-bottom: 0.5rem;
     }
 
+    .btn-primary {
+      background-color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-deep);
+      border-color: var(--accent-deep);
+    }
+
+    .btn-outline-primary {
+      color: var(--accent-deep);
+      border-color: var(--accent-soft);
+      background-color: rgba(191, 219, 254, 0.25);
+    }
+
+    .btn-outline-primary:hover {
+      background-color: var(--accent-deep);
+      color: #ffffff;
+      border-color: var(--accent-deep);
+    }
+
+    .btn-outline-success {
+      border-color: #86efac;
+      color: #15803d;
+      background-color: #dcfce7;
+    }
+
+    .btn-outline-success:hover {
+      background-color: #15803d;
+      border-color: #15803d;
+      color: #ffffff;
+    }
+
     .teaser-card img {
-      border-radius: 0.75rem;
-      border: 1px solid #e5e7eb;
+      border-radius: 0.9rem;
+      border: 1px solid var(--accent-soft);
     }
 
     section {
       padding: 3rem 0;
-      background-color: #f5f5f7;
+      background-color: var(--bg-light);
     }
 
     section:nth-of-type(even) {
-      background-color: #ffffff;
+      background-color: var(--bg-lighter);
     }
 
     .section-title {
       font-size: 1.6rem;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 0.5rem;
+      color: #0f172a;
     }
 
     .section-subtitle {
       font-size: 0.95rem;
-      color: #6b7280;
+      color: var(--text-muted);
       margin-bottom: 1.5rem;
     }
 
     .fig-caption {
       font-size: 0.85rem;
-      color: #6b7280;
+      color: var(--text-muted);
     }
 
     .resource-card {
-      border-radius: 0.75rem;
-      border: 1px solid #e5e7eb;
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      border-radius: 0.9rem;
+      border: 1px solid var(--accent-soft);
+      background-color: var(--card-bg);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
       height: 100%;
     }
 
     .resource-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
     }
 
     .chip {
       display: inline-flex;
       align-items: center;
-      padding: 0.15rem 0.5rem;
+      padding: 0.15rem 0.6rem;
       border-radius: 999px;
       font-size: 0.75rem;
-      background-color: #eef2ff;
-      color: #4f46e5;
+      background-color: #e0f2fe;
+      color: #0369a1;
       margin-right: 0.3rem;
       margin-bottom: 0.3rem;
     }
 
     pre.bibtex-block {
-      background-color: #111827;
+      background-color: #0f172a;
       color: #e5e7eb;
-      border-radius: 0.5rem;
+      border-radius: 0.6rem;
       padding: 1rem 1.2rem;
       font-size: 0.85rem;
       overflow-x: auto;
+      border: 1px solid #1f2937;
     }
 
     footer {
       padding: 2rem 0 2.5rem;
       font-size: 0.85rem;
-      color: #6b7280;
-      background-color: #ffffff;
-      border-top: 1px solid #e5e7eb;
+      color: var(--text-muted);
+      background: linear-gradient(180deg, #e0f2fe, #ffffff);
+      border-top: 1px solid #dbeafe;
     }
   </style>
 </head>
@@ -145,7 +193,7 @@
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
-      <a class="navbar-brand fw-semibold" href="#">Header Project</a>
+      <a class="navbar-brand fw-semibold" href="#">HETA Project</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -163,13 +211,16 @@
             <a class="nav-link" href="#abstract">Paper</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#archive">Archive & Dataset</a>
+            <a class="nav-link" href="#archive">Archive & Code</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#demo">Input / Output Demo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#overview">Overview</a>
+            <a class="nav-link" href="#motivation">Motivation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#overview">Method</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#results">Results</a>
@@ -188,35 +239,33 @@
       <div class="row align-items-center g-4">
         <div class="col-lg-7">
           <h1 class="hero-title mb-3">
-            Header Project: Learning on Model Weights with Tree Experts
+            Hessian-Enhanced Token Attribution (HETA)
           </h1>
           <p class="hero-subtitle mb-3">
             <span class="author-list">
-              <a href="#">First Author*</a>,
-              <a href="#">Second Author*</a>,
-              <a href="#">Third Author</a>,
-              <a href="#">Fourth Author</a>
+              <a href="#">Vishal Pramanik*</a>,
+              <a href="#">Maisha Maliha*</a>,
+              <a href="#">Sumit Kumar Jha</a>
             </span>
             <span class="badge badge-equal ms-2">* equal contribution</span>
           </p>
           <p class="hero-subtitle mb-1">
-            <strong>Your Lab / Institution</strong>
+            <strong>Florida International University</strong>
           </p>
-          <p class="hero-subtitle mb-3">Conference Name, Year</p>
+          <p class="hero-subtitle mb-3">
+            Preprint • Under review
+          </p>
 
           <div class="cta-buttons mb-3">
             <!-- Update href targets to your real links -->
-            <a href="assets/paper.pdf" class="btn btn-primary" target="_blank">
+            <a href="assets/heta_paper.pdf" class="btn btn-primary" target="_blank">
               Paper (PDF)
+            </a>
+            <a href="#" class="btn btn-outline-primary" target="_blank">
+              arXiv / Archive
             </a>
             <a href="#" class="btn btn-outline-secondary disabled">
               Code – coming soon
-            </a>
-            <a href="#" class="btn btn-outline-primary" target="_blank">
-              arXiv
-            </a>
-            <a href="#" class="btn btn-outline-success" target="_blank">
-              Dataset
             </a>
           </div>
         </div>
@@ -226,14 +275,15 @@
           <div class="card teaser-card shadow-sm">
             <!-- Replace src with your teaser image path -->
             <img
-              src="assets/images/teaser-placeholder.png"
+              src="assets/images/heta_teaser_placeholder.png"
               class="card-img-top"
-              alt="Teaser diagram placeholder"
+              alt="HETA overview diagram placeholder"
             />
             <div class="card-body">
               <p class="fig-caption mb-0">
-                Teaser figure for the project. Replace this placeholder with
-                your actual overview illustration.
+                High-level view of HETA: semantic flow traces causal paths, curvature measures
+                second-order sensitivity, and KL divergence captures information loss under
+                token masking. Replace this image with your actual figure.
               </p>
             </div>
           </div>
@@ -247,85 +297,76 @@
     <div class="container">
       <h2 class="section-title">Abstract</h2>
       <p class="section-subtitle">
-        Replace this paragraph with the real abstract of your paper. The goal
-        here is to provide a concise, high-level summary of the problem, method,
-        and key results in a few sentences.
+        Concise summary of the HETA framework and its contributions.
       </p>
 
       <p>
-        This is placeholder text. We investigate how neural networks can reason
-        directly on the weights of other models. Our method builds a hierarchy
-        of experts over model families, allowing downstream tasks such as model
-        classification, retrieval, and dataset attribution. The abstract section
-        should be short but self-contained, giving readers enough context to
-        decide whether they want to explore the rest of the page.
+        Modern decoder-only language models generate fluent text but often behave as opaque
+        “black boxes”. Many popular attribution methods were originally developed for
+        encoder-style architectures and rely on first-order or linear approximations, which
+        struggle to explain autoregressive generation. HETA addresses this gap by providing
+        token-level attributions that are explicitly tailored to decoder-only models.
       </p>
       <p>
-        You can tune the length of this text to match your actual abstract. All
-        formatting is handled with standard HTML and Bootstrap utility classes,
-        so you can freely add equations, references, or links if needed.
+        The framework combines three complementary signals. First, a semantic transition
+        component traces attention–value flows that end at the target position, enforcing a
+        causal gate over tokens that can influence the chosen output. Second, a Hessian-based
+        term captures second-order curvature of the target log-likelihood with respect to token
+        embeddings, revealing nonlinear and interaction effects that gradients alone may miss.
+        Third, a KL divergence term measures how the predictive distribution over the target
+        changes when individual tokens are masked, providing an information-theoretic view of
+        importance. Together, these pieces yield context-aware, causally grounded, and
+        semantically meaningful explanations for generative language models. Empirical
+        evaluations across several models and datasets show that HETA improves attribution
+        faithfulness and agreement with human annotations over prior methods.
       </p>
     </div>
   </section>
 
-  <!-- ARCHIVE / DATASET / RESOURCES -->
+  <!-- ARCHIVE / CODE (NO DATASET CARD) -->
   <section id="archive">
     <div class="container">
-      <h2 class="section-title">Paper Archive & Resources</h2>
+      <h2 class="section-title">Paper Archive & Code</h2>
       <p class="section-subtitle">
-        Quick links to all artifacts associated with the project: archival
-        versions of the paper, code, pre-trained models, and datasets.
+        Links to the current version of the paper and the upcoming open-source release.
       </p>
 
       <div class="row g-4">
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-4">
           <div class="resource-card p-3 h-100">
-            <h5 class="mb-2">Paper</h5>
+            <h5 class="mb-2">Paper PDF</h5>
             <p class="mb-3">
-              Link to the camera-ready PDF or project report. You may also add
-              supplementary material here.
+              Link to the main manuscript describing the HETA framework, methodology,
+              and experimental results.
             </p>
-            <a href="assets/paper.pdf" class="btn btn-sm btn-primary w-100">
+            <a href="assets/heta_paper.pdf" class="btn btn-sm btn-primary w-100">
               Download Paper
             </a>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-4">
           <div class="resource-card p-3 h-100">
             <h5 class="mb-2">arXiv / Archive</h5>
             <p class="mb-3">
-              Point to the arXiv, OpenReview, or other archival copy of the
-              work.
+              Once available, this will point to the public preprint or conference archive
+              version of the paper.
             </p>
             <a href="#" class="btn btn-sm btn-outline-primary w-100">
-              View arXiv Entry
+              Archive link – coming soon
             </a>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-4">
           <div class="resource-card p-3 h-100">
-            <h5 class="mb-2">Code & Models</h5>
+            <h5 class="mb-2">Code</h5>
             <p class="mb-3">
-              Add links to your GitHub repository and model checkpoints (e.g.,
-              Hugging Face).
+              The official implementation of HETA, including evaluation scripts and
+              reproducing the reported experiments, will be released here.
             </p>
-            <a href="#" class="btn btn-sm btn-outline-secondary w-100">
-              GitHub Repository
-            </a>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="resource-card p-3 h-100">
-            <h5 class="mb-2">Dataset</h5>
-            <p class="mb-3">
-              Describe and link your dataset, including license and download
-              instructions.
-            </p>
-            <a href="#" class="btn btn-sm btn-outline-success w-100">
-              Download Dataset
+            <a href="#" class="btn btn-sm btn-outline-secondary w-100 disabled">
+              Code – coming soon
             </a>
           </div>
         </div>
@@ -338,32 +379,29 @@
     <div class="container">
       <h2 class="section-title">Interactive Demo: Input / Output</h2>
       <p class="section-subtitle">
-        This section mirrors the “try it” components of many project pages.
-        Connect this to a live demo (e.g., your HETA page) or embed a widget.
+        This section is designed for plugging in a live Gradio or HuggingFace Space demo.
+        Replace the placeholder URL in the iframe with your hosted demo link.
       </p>
 
       <div class="row g-4">
         <div class="col-lg-6">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">Try the Model</h5>
+              <h5 class="card-title">Try HETA Online</h5>
               <p class="card-text">
-                Provide a short description of your interactive demo: what the
-                user can input (e.g., a prompt, an image, or a model weight
-                file) and what they should expect as output.
+                The interactive interface lets you type a prompt, select a target token, and
+                visualize token-level attributions. Tokens are colour-coded so that darker hues
+                correspond to higher influence on the chosen prediction.
               </p>
               <ul class="mb-3">
-                <li>Explain any constraints on inputs.</li>
-                <li>Describe what the output represents.</li>
-                <li>
-                  Optionally show a few example inputs and corresponding
-                  outputs.
-                </li>
+                <li>Enter an input sequence for a decoder-only language model.</li>
+                <li>Choose a target token or index for attribution.</li>
+                <li>Inspect how HETA distributes credit across the context.</li>
               </ul>
-              <!-- Link to your live demo (e.g., heta.html or Gradio app) -->
-              <a href="heta.html" class="btn btn-primary">
-                Open Live Demo
-              </a>
+              <p class="mb-2">
+                <strong>Where to put your link:</strong> in the iframe on the right, replace
+                <code>YOUR_DEMO_URL_HERE</code> with your Gradio or HuggingFace Space URL.
+              </p>
             </div>
           </div>
         </div>
@@ -371,29 +409,22 @@
         <div class="col-lg-6">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">Example Input / Output</h5>
+              <h5 class="card-title">Embedded Demo</h5>
               <p class="card-text">
-                Use this space to show a concrete example of the model in
-                action. The layout below is just a suggestion.
+                The live demo can be embedded directly below. Users can interact with it
+                without leaving the project page.
               </p>
-
-              <div class="mb-2">
-                <span class="chip">Example 1</span>
-                <span class="chip">Tree Expert</span>
-                <span class="chip">Model Retrieval</span>
+              <div class="ratio ratio-16x9 border rounded" style="background-color:#e0f2fe;">
+                <!-- TODO: Replace YOUR_DEMO_URL_HERE with your Gradio or HuggingFace Space URL -->
+                <iframe
+                  src="https://YOUR_DEMO_URL_HERE"
+                  title="HETA Gradio/HuggingFace Demo"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  style="border:0;"
+                ></iframe>
               </div>
-
-              <p class="mb-1 fw-semibold">Input</p>
-              <p class="border rounded p-2 bg-light">
-                Placeholder example input text or description goes here. Replace
-                with a real prompt or query.
-              </p>
-
-              <p class="mb-1 fw-semibold">Output</p>
-              <p class="border rounded p-2 bg-light">
-                Example output produced by your system. You can place attention
-                maps, token attributions, or retrieved models here.
-              </p>
             </div>
           </div>
         </div>
@@ -401,15 +432,49 @@
     </div>
   </section>
 
-  <!-- OVERVIEW / METHOD SECTIONS -->
+  <!-- MOTIVATION -->
+  <section id="motivation">
+    <div class="container">
+      <h2 class="section-title">Motivation</h2>
+      <p class="section-subtitle">
+        Why existing attribution methods struggle with decoder-only language models, and
+        what HETA aims to fix.
+      </p>
+
+      <p>
+        Interpreting which tokens matter for a generative model’s prediction is challenging.
+        Attention maps are visually appealing, but they track where the model “looks”, not
+        necessarily what truly affects the final logit. They can assign high weight to tokens
+        whose removal barely changes the output, and they often blur together direct and
+        indirect influence paths through deep stacks of layers and residual connections.
+      </p>
+      <p>
+        Classical attribution techniques based on first-order derivatives face a different
+        limitation. Gradients and integrated gradients assume that a local linear
+        approximation around the input is informative. In highly nonlinear regions, or
+        where gradients vanish despite the function being sensitive to finite changes,
+        these methods under-report important tokens. This is especially problematic in
+        autoregressive models, where each new token is generated conditioned on a long and
+        context-dependent history.
+      </p>
+      <p>
+        HETA is motivated by these gaps. The framework is designed to respect causal masking
+        in decoder-only transformers, to account for curvature in the log-likelihood surface,
+        and to measure how much predictive information a token contributes when it is
+        removed. The goal is not just a heatmap, but a set of explanations that remain
+        stable, faithful, and aligned with human judgments across prompts, architectures,
+        and decoding settings.
+      </p>
+    </div>
+  </section>
+
+  <!-- METHOD OVERVIEW -->
   <section id="overview">
     <div class="container">
       <h2 class="section-title">Method Overview</h2>
       <p class="section-subtitle">
-        High-level explanation of the approach. These blocks roughly mirror the
-        “Learning within Model Trees”, “Largest Trees”, and “Probing Experts”
-        sections from the reference page, but you can rename and rewrite them as
-        needed.
+        HETA decomposes token influence into semantic flow, curvature-based sensitivity,
+        and information-theoretic impact.
       </p>
 
       <div class="row g-4 mb-4">
@@ -417,16 +482,19 @@
           <div class="card h-100">
             <!-- Replace with your illustration -->
             <img
-              src="assets/images/overview-1.png"
+              src="assets/images/heta_semantic_flow.png"
               class="card-img-top"
-              alt="Overview diagram placeholder"
+              alt="Semantic flow diagram placeholder"
             />
             <div class="card-body">
-              <h5 class="card-title">Learning within Model Trees</h5>
+              <h5 class="card-title">Semantic Transition Influence</h5>
               <p class="card-text">
-                Describe how your method organizes models into trees or other
-                structural groups. This is placeholder text explaining the
-                motivation, intuition, and any important empirical findings.
+                HETA first traces attention–value flows that terminate at the current target
+                position under the decoder’s causal mask. This yields a semantic transition
+                vector that assigns non-negative mass only to tokens that lie on valid paths
+                to the target. The vector serves as a gate: attributions can only be assigned
+                to tokens that can, in principle, influence the prediction through the model’s
+                architecture.
               </p>
             </div>
           </div>
@@ -436,16 +504,20 @@
           <div class="card h-100">
             <!-- Replace with your illustration -->
             <img
-              src="assets/images/overview-2.png"
+              src="assets/images/heta_hessian_kl.png"
               class="card-img-top"
-              alt="Tree statistics placeholder"
+              alt="Hessian and KL impact diagram placeholder"
             />
             <div class="card-body">
-              <h5 class="card-title">Model Repository Statistics</h5>
+              <h5 class="card-title">Curvature & Information Gain</h5>
               <p class="card-text">
-                Use this panel to summarize statistics about your dataset or
-                model collection (e.g., number of trees, parameter counts,
-                domains). Replace the image and text with your actual content.
+                To capture nonlinear effects, HETA estimates token-wise sensitivity using
+                Hessian–vector products and Hutchinson-style estimators, avoiding explicit
+                construction of the full Hessian. In parallel, it measures how the target
+                distribution changes when each token is masked, via KL divergence between
+                the original and perturbed predictions. The final attribution score multiplies
+                the causal gate with a weighted sum of curvature and information terms,
+                producing a target-conditioned importance score for each token.
               </p>
             </div>
           </div>
@@ -457,18 +529,20 @@
           <div class="card h-100">
             <!-- Replace with your illustration -->
             <img
-              src="assets/images/overview-3.png"
+              src="assets/images/heta_pipeline_full.png"
               class="card-img-top"
-              alt="ProbeX-style architecture placeholder"
+              alt="Full HETA pipeline placeholder"
             />
             <div class="card-body">
-              <h5 class="card-title">Probing Experts Architecture</h5>
+              <h5 class="card-title">Putting It All Together</h5>
               <p class="card-text">
-                This area can be used to describe your expert architecture or
-                encoder for model weights. Explain how probes are applied to the
-                weight matrices, how the encodings are aggregated, and how the
-                final prediction head is trained. All paragraphs are placeholders
-                and can be freely replaced.
+                The unified pipeline produces non-negative, target-specific attribution scores
+                for every token in the context. The design balances three perspectives:
+                structural (which tokens are causally connected), geometric (how the
+                log-likelihood curve bends around the input), and information-theoretic
+                (how much probability mass shifts when a token is removed). This combination
+                leads to explanations that are both empirically robust and theoretically
+                grounded for decoder-only language models.
               </p>
             </div>
           </div>
@@ -482,8 +556,8 @@
     <div class="container">
       <h2 class="section-title">Results</h2>
       <p class="section-subtitle">
-        Summarize key quantitative and qualitative results. You may insert
-        tables, plots, or retrieval visualizations here.
+        Summary of experimental findings across models, benchmarks, and curated evaluation
+        datasets.
       </p>
 
       <div class="row g-4">
@@ -491,16 +565,19 @@
           <div class="card h-100">
             <!-- Replace with your results figure -->
             <img
-              src="assets/images/results-1.png"
+              src="assets/images/heta_benchmarks.png"
               class="card-img-top"
-              alt="Results figure placeholder"
+              alt="Benchmark results placeholder"
             />
             <div class="card-body">
-              <h5 class="card-title">Quantitative Performance</h5>
+              <h5 class="card-title">Attribution Faithfulness</h5>
               <p class="card-text">
-                Placeholder description of the main quantitative benchmarks:
-                accuracy, retrieval performance, zero-shot transfer, or any
-                other metrics you report in the paper.
+                HETA is evaluated on benchmark datasets such as LongRA, TellMeWhy, and
+                WikiBio using multiple decoder-only language models (including mid-sized and
+                large transformers). On perturbation-based metrics like Soft-NC and Soft-NS,
+                HETA consistently achieves higher scores than gradient-based, attention-only,
+                and recent attribution baselines. The gains are especially pronounced on
+                tasks that require long-range reasoning and multi-sentence context.
               </p>
             </div>
           </div>
@@ -508,19 +585,22 @@
 
         <div class="col-lg-6">
           <div class="card h-100">
-            <!-- Replace with your retrieval or qualitative figure -->
+            <!-- Replace with your qualitative figure -->
             <img
-              src="assets/images/results-2.png"
+              src="assets/images/heta_curated_dataset.png"
               class="card-img-top"
-              alt="Qualitative retrieval placeholder"
+              alt="Curated dataset and robustness placeholder"
             />
             <div class="card-body">
-              <h5 class="card-title">Qualitative Examples</h5>
+              <h5 class="card-title">Alignment & Robustness</h5>
               <p class="card-text">
-                Use this panel to show qualitative visualizations such as model
-                retrieval, token attributions, or generated outputs. The image
-                and text are placeholders that you can replace with your own
-                figures.
+                A curated evaluation set combines narrative passages with question–answer
+                pairs to test whether attribution mass concentrates on truly diagnostic
+                evidence rather than distractors. Using a Dependent Sentence Attribution
+                metric, HETA assigns substantially more importance to answer-bearing spans
+                than competing methods. Additional analyses show that HETA’s attributions
+                remain stable under input noise, active/passive rephrasings, and changes to
+                decoding hyperparameters, whereas many baselines fluctuate significantly.
               </p>
             </div>
           </div>
@@ -534,16 +614,10 @@
     <div class="container">
       <h2 class="section-title">BibTeX</h2>
       <p class="section-subtitle">
-        Provide a citation block so that others can easily reference your work.
+        Citation information will be posted here once the paper is publicly available.
       </p>
 
-      <pre class="bibtex-block">@inproceedings{YourKey_Year_Conference,
-  author    = {First Author and Second Author and Third Author and Fourth Author},
-  title     = {Header Project: Learning on Model Weights with Tree Experts},
-  booktitle = {Proceedings of the Conference on Awesome Machine Learning},
-  year      = {2025},
-  pages     = {1--10}
-}</pre>
+      <pre class="bibtex-block">BibTeX entry – coming soon.</pre>
     </div>
   </section>
 
@@ -553,8 +627,8 @@
       <div class="row gy-2 align-items-center">
         <div class="col-md-8">
           <span>
-            © <span id="year"></span> Header Project Authors. All rights
-            reserved.
+            © <span id="year"></span> HETA Project Authors. All rights
+            reserved. Developed by <strong>Vishal Pramanik</strong>.
           </span>
         </div>
         <div class="col-md-4 text-md-end">

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Shapley NEAR | Research Page</title>
+  <title>Fact or Hallucination? | Shapley NEAR</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Bootstrap CSS -->
@@ -68,12 +68,6 @@
       text-decoration: underline;
     }
 
-    .badge-equal {
-      font-size: 0.7rem;
-      background-color: #e0f2fe;
-      color: #0f172a;
-    }
-
     .cta-buttons .btn {
       margin-right: 0.5rem;
       margin-bottom: 0.5rem;
@@ -98,7 +92,7 @@
     .btn-outline-primary:hover {
       background-color: var(--accent-deep);
       color: #ffffff;
-      border-color: var(--accent-deep);
+      border-color: #0369a1;
     }
 
     .btn-outline-secondary {
@@ -243,17 +237,17 @@
             Fact or Hallucination? An Entropy-Based Framework for Attention-Wise Usable Information in LLMs
           </h1>
           <p class="hero-subtitle mb-2 text-center">
-            <strong>Shapley NEAR</strong>: Norm-basEd Attention-wise usable infoRmation
+            <strong>Shapley NEAR</strong> – Norm-basEd Attention-wise usable infoRmation
           </p>
           <p class="hero-subtitle mb-2 text-center">
             <span class="author-list">
-              <!-- Replace with real author names if desired -->
-              <a href="#">Anonymous Author(s)</a>
+              <!-- Replace with real author names when de-anonymized -->
+              <a href="#">Anonymous Submission</a>
             </span>
           </p>
           <p class="hero-subtitle mb-1 text-center">
-            <!-- Replace with real affiliation -->
-            <strong>Affiliation</strong>
+            <!-- Replace with actual affiliation if desired -->
+            <strong>Affiliation to be updated</strong>
           </p>
 
           <div class="cta-buttons mb-3 d-flex justify-content-center flex-wrap">
@@ -261,11 +255,10 @@
             <a href="near_paper.pdf" class="btn btn-primary" target="_blank">
               Paper (PDF)
             </a>
-            <!-- Replace YOUR_ARCHIVE_LINK_HERE with the link you mentioned -->
+            <!-- Replace YOUR_ARCHIVE_LINK_HERE with your actual arXiv / conference link -->
             <a href="YOUR_ARCHIVE_LINK_HERE" class="btn btn-outline-primary" target="_blank">
               arXiv / Archive
             </a>
-            <!-- Optional: code link, keep disabled until ready -->
             <a href="#" class="btn btn-outline-secondary disabled">
               Code – coming soon
             </a>
@@ -281,35 +274,38 @@
       <h2 class="section-title">Abstract</h2>
 
       <div class="heta-figure-container">
-        <!-- Optional overview figure for the method -->
+        <!-- Overview figure of NEAR; replace src with your own overview image if desired -->
         <img
           src="near_overview.png"
           alt="Overview of the Shapley NEAR framework for hallucination detection"
           class="heta-figure img-fluid"
         />
         <p class="fig-caption mt-2 text-center">
-          Overview of Shapley NEAR: an entropy-based attribution pipeline that tracks attention-wise
-          usable information across layers and heads, then uses Shapley values to assign sentence-level
-          scores indicating hallucination risk.
+          Overview of Shapley NEAR: norm-based attention outputs are converted to entropy-based information gain
+          across layers and heads, which is then fairly attributed to context sentences via Shapley values to
+          assess hallucination risk.
         </p>
       </div>
 
       <p>
-        Large language models often generate outputs that are fluent and confident but factually wrong,
-        posing serious safety concerns in high-stakes applications. Existing hallucination detection methods
-        typically depend on final-layer logits, shallow uncertainty measures, or post-hoc textual checks, and
-        therefore ignore the rich semantic signals distributed across layers and attention heads inside the model.
+        Large language models can confidently generate incorrect answers, which is risky in safety-critical
+        applications. Many existing hallucination detectors only use final-layer logits or post-hoc textual checks,
+        ignoring the semantic structure encoded in intermediate attention blocks. Shapley NEAR addresses this by
+        defining an entropy-based attribution framework over all layers and heads, grounded in V-usable information
+        and Shapley value theory. :contentReference[oaicite:1]{index=1}
       </p>
       <p>
-        Shapley NEAR addresses this gap with an entropy-based attribution framework grounded in Shapley
-        values. It measures how much usable information each context sentence contributes to answering a
-        question by decomposing attention-driven information gain across all layers and heads. Higher scores
-        correspond to lower hallucination risk. The framework further separates two error modes:
-        <em>parametric hallucinations</em>, when pre-trained knowledge overrides the context, and
-        <em>context-induced hallucinations</em>, when misleading context spuriously reduces uncertainty.
-        A test-time head clipping strategy prunes attention heads that consistently produce overconfident,
-        context-agnostic behavior, improving reliability without any additional training or architectural
-        modifications.
+        The method converts norm-based attention outputs into head- and layer-wise information gain, comparing
+        entropy with and without context. This information is then decomposed into sentence-level contributions
+        using Shapley values, producing a NEAR score that serves as a confidence signal for the model’s answer:
+        high NEAR scores indicate that context genuinely reduced uncertainty, while low scores flag likely
+        hallucinations.
+      </p>
+      <p>
+        Shapley NEAR further distinguishes between <em>parametric hallucinations</em> (the model’s pre-trained
+        knowledge overriding context) and <em>context-induced hallucinations</em> (misleading context spuriously
+        boosting confidence), and supports a test-time head clipping strategy to disable attention heads that
+        consistently behave in a hallucination-prone, context-agnostic way.
       </p>
     </div>
   </section>
@@ -319,7 +315,7 @@
     <div class="container">
       <h2 class="section-title">Paper Archive & Code</h2>
       <p class="section-subtitle">
-        Links to the current version of the paper, public preprint, and planned code release.
+        Links to the latest version of the paper, public preprint, and the planned codebase.
       </p>
 
       <div class="row g-4">
@@ -327,8 +323,8 @@
           <div class="resource-card p-3 h-100">
             <h5 class="mb-2">Paper PDF</h5>
             <p class="mb-3">
-              Main manuscript describing Shapley NEAR, including the theoretical framework,
-              entropy-based attribution, and extensive empirical evaluation.
+              Complete manuscript describing Shapley NEAR: definitions, theoretical properties, experimental
+              setup, and extensive ablations.
             </p>
             <a href="near_paper.pdf" class="btn btn-sm btn-primary w-100" target="_blank">
               Download Paper
@@ -340,11 +336,10 @@
           <div class="resource-card p-3 h-100">
             <h5 class="mb-2">arXiv / Archive</h5>
             <p class="mb-3">
-              Public preprint or conference version of the paper. Replace this link with the
-              final arXiv or proceedings entry once available.
+              Once public, this link can point to the arXiv preprint or conference proceedings version of the work.
             </p>
             <a href="YOUR_ARCHIVE_LINK_HERE" class="btn btn-sm btn-outline-primary w-100" target="_blank">
-              View on arXiv / Archive
+              View Archive
             </a>
           </div>
         </div>
@@ -353,8 +348,8 @@
           <div class="resource-card p-3 h-100">
             <h5 class="mb-2">Code</h5>
             <p class="mb-3">
-              Planned open-source implementation of Shapley NEAR, including hallucination detection
-              pipelines, NEAR score computation, and head clipping utilities.
+              Planned open-source release implementing NEAR, sentence-level Shapley attribution, and head clipping
+              on top of popular LLMs.
             </p>
             <a href="#" class="btn btn-sm btn-outline-secondary w-100 disabled">
               Code – coming soon
@@ -370,7 +365,8 @@
     <div class="container">
       <h2 class="section-title">Interactive Demo (Optional)</h2>
       <p class="section-subtitle">
-        Placeholder section for a future Shapley NEAR demo. You can plug in a Gradio or web demo link here.
+        This section can host a live NEAR demo (e.g., via Gradio or Streamlit) showing how NEAR flags
+        hallucinated answers for question–context pairs.
       </p>
 
       <div class="row g-4">
@@ -379,18 +375,19 @@
             <div class="card-body">
               <h5 class="card-title">Demo Description</h5>
               <p class="card-text">
-                A typical demo would let users provide a context and question, run the LLM to generate
-                an answer, and visualize Shapley NEAR scores over context sentences or segments. High
-                NEAR scores indicate that the model is using the context in a stable, information-rich way.
+                A typical demo would let users input a context passage and question, query a selected LLM
+                (such as Qwen2.5-3B, LLaMA3.1-8B, or OPT-6.7B), and then visualize the NEAR score alongside
+                sentence-level attributions. Sentences with high contribution to information gain are highlighted.
               </p>
               <ul class="mb-3">
-                <li>Enter a passage and a question.</li>
-                <li>Generate the model’s answer.</li>
-                <li>Inspect NEAR scores for each context segment and attention head.</li>
+                <li>Paste or select a context and question.</li>
+                <li>Generate the model’s answer and compute NEAR.</li>
+                <li>View sentence-level Shapley NEAR scores and a global NEAR confidence score.</li>
               </ul>
               <p class="mb-0">
-                When you have a live demo URL, you can link it
-                <a href="#" target="_blank" rel="noopener noreferrer">here</a>.
+                When your demo is ready, link it
+                <a href="#" target="_blank" rel="noopener noreferrer">here</a>
+                or embed it in the frame on the right.
               </p>
             </div>
           </div>
@@ -401,11 +398,9 @@
             <div class="card-body">
               <h5 class="card-title">Embedded Demo</h5>
               <p class="card-text">
-                You can embed a web demo below using an iframe (for example, a Gradio or Streamlit app)
-                so visitors can experiment with Shapley NEAR directly from this page.
+                You can embed a live NEAR demo directly below (replace the iframe URL with your hosted app).
               </p>
               <div class="ratio ratio-16x9 border rounded" style="background-color:#e0f2fe;">
-                <!-- Replace src with your actual demo URL when ready -->
                 <iframe
                   src="#"
                   title="Shapley NEAR Demo"
@@ -427,27 +422,27 @@
     <div class="container">
       <h2 class="section-title">Motivation</h2>
       <p class="section-subtitle">
-        Why we need attention-wise usable information, not just final-layer logits or semantic entropy.
+        Why entropy-based, attention-wise usable information is needed for hallucination detection.
       </p>
 
       <p>
-        Hallucinations occur when models produce confident but incorrect answers. Many existing methods
-        estimate uncertainty from final token probabilities, semantic diversity of multiple generations, or
-        simple entropy of the output distribution. However, these measures are blind to where information
-        is processed inside the model and how attention heads interact with the context.
+        LLM hallucinations emerge when models output fluent but incorrect statements with high confidence,
+        especially problematic in domains where factual accuracy is crucial. Token-level entropy signals and
+        semantic diversity of multiple generations can be useful, but extending them cleanly to sentence-level
+        decisions in autoregressive models is non-trivial, and they typically overlook what happens inside the
+        network. :contentReference[oaicite:2]{index=2}
       </p>
       <p>
-        At the same time, prior work on V-usable information and pointwise V-information has shown that
-        classical mutual information does not capture what a computationally bounded model can actually
-        extract from its input. Building on this perspective, Shapley NEAR focuses on attention layers,
-        which are more closely tied to in-context reasoning than feed-forward layers. By measuring how
-        attention outputs change the model’s entropy over the vocabulary, we obtain a more faithful notion
-        of “usable information” for answering a question.
+        Prior work on V-usable information and pointwise V-information showed that classical mutual information
+        tends to overestimate how much signal a computationally bounded model can actually exploit. At the same
+        time, analyses of transformer internals revealed that feed-forward layers often encode superficial
+        correlations, while attention heads are more aligned with in-context reasoning.
       </p>
       <p>
-        This leads to a principled way to detect when the model is genuinely supported by the context versus
-        when it is relying on brittle parametric knowledge or misleading fragments, helping to improve
-        trustworthiness in question answering and retrieval-augmented generation.
+        Shapley NEAR brings these threads together: it focuses on attention outputs, measures how much they reduce
+        entropy relative to a null context, and then attributes this usable information to individual context
+        sentences. This gives an interpretable, plug-and-play signal that correlates with whether an answer is
+        supported by the context or likely to be hallucinated.
       </p>
     </div>
   </section>
@@ -457,25 +452,25 @@
     <div class="container">
       <h2 class="section-title">Method Overview</h2>
       <p class="section-subtitle">
-        From norm-based attention information to Shapley NEAR scores and head clipping.
+        From norm-based attention information to sentence-level Shapley NEAR scores and head clipping.
       </p>
 
       <div class="row g-4 mb-4">
         <div class="col-lg-6">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">Norm-Based Attention Information</h5>
+              <h5 class="card-title">Norm-Based Attention Information & Information Gain</h5>
               <p class="card-text">
-                For each layer and attention head, Shapley NEAR extracts the attention output at the
-                final question token and uses its vector norm as a proxy for information flow through
-                that head. A softmax over this vector defines a vocabulary distribution, from which the
-                entropy at the final token is computed.
+                For each layer ℓ and head h, the model computes query, key, and value tensors over the concatenated
+                context and question. The attention output for head (ℓ, h) is projected to the model dimension, and
+                the vector at the final question token is extracted. Its norm is used as a proxy for information
+                carried by that head, and a softmax over this vector defines a vocabulary distribution.
               </p>
               <p class="card-text">
-                Information gain is then defined as the reduction in entropy compared to a null context,
-                where the model relies only on its parametric knowledge. Summing these gains across
-                layers and heads yields an attention-wise measure of how much the context reduces
-                uncertainty about the answer.
+                Entropy of this distribution is measured with and without the context (null input), and the
+                difference defines an <em>information gain</em> for that head. Summing over all layers and heads yields
+                a total information gain IG(x → q) capturing how much the context reduces predictive uncertainty
+                for the question.
               </p>
             </div>
           </div>
@@ -484,17 +479,18 @@
         <div class="col-lg-6">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">Shapley Sentence Attribution</h5>
+              <h5 class="card-title">Sentence-Level Shapley Attribution & NEAR</h5>
               <p class="card-text">
-                The context is segmented into sentences (or spans), and Shapley NEAR uses Shapley
-                values to fairly attribute the total information gain to each segment. For every subset
-                of sentences, it considers the marginal effect of adding a given sentence on the overall
-                information gain.
+                The context is segmented into sentences, and the total information gain is viewed as a cooperative
+                “game” between these segments. Using Shapley values, NEAR computes the average marginal contribution
+                of each sentence across all permutations of the remaining sentences.
               </p>
               <p class="card-text">
-                Averaging these marginal contributions over random permutations yields a sentence-level
-                Shapley NEAR score. High scores indicate that the sentence consistently helps reduce
-                uncertainty; near-zero or negative scores reveal unhelpful or misleading context.
+                The <strong>Shapley NEAR score</strong> is the average of these sentence-level Shapley values. It is bounded
+                by a function of the number of layers, heads, and vocabulary size, symmetric across sentences with
+                identical contributions, and empirically monotone when more layers are included. An AME-style
+                estimator with randomly sampled coalitions provides a practical approximation with proven error
+                bounds.
               </p>
             </div>
           </div>
@@ -505,19 +501,20 @@
         <div class="col-lg-12">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">Properties, Bounds, and Head Clipping</h5>
+              <h5 class="card-title">Parametric vs Context-Induced Hallucinations & Head Clipping</h5>
               <p class="card-text">
-                Shapley NEAR enjoys several desirable properties: it is bounded in terms of model depth,
-                number of heads, and vocabulary size, respects symmetry between equivalent sentences,
-                and exhibits diminishing returns for redundant context. A Monte Carlo Shapley estimator
-                provides high-probability error bounds as the number of sampled permutations increases.
+                NEAR also helps distinguish different failure modes. When a context sentence that does not contain
+                the answer reduces information gain (negative Shapley value), it signals <em>parametric hallucination</em>:
+                the model’s internal knowledge conflicts with the context and increases uncertainty. When such a
+                sentence spuriously raises information gain (positive contribution), it indicates
+                <em>context-induced hallucination</em> where misleading context overly boosts confidence.
               </p>
               <p class="card-text">
-                The same attribution analysis also exposes attention heads that consistently exhibit
-                negative information gain, signaling parametric hallucination. By clipping these heads
-                at test time, the authors show that it is possible to improve hallucination detection and
-                answer reliability without any retraining, connecting interpretability directly to control
-                over internal model behavior.
+                By tracking head-wise contributions, NEAR identifies attention heads that consistently show
+                strongly negative information gain. Clipping these heads at test time improves hallucination
+                detection and answer quality (e.g., higher AUROC, accuracy, and ROUGE-L on CoQA with LLaMA3.1-8B),
+                demonstrating how an interpretability-based analysis can directly inform low-cost, training-free
+                interventions.
               </p>
             </div>
           </div>
@@ -531,33 +528,34 @@
     <div class="container">
       <h2 class="section-title">Results</h2>
       <p class="section-subtitle">
-        Performance on QA benchmarks and examples of Shapley NEAR attributions.
+        Performance on QA benchmarks, Shapley ablations, threshold analysis, and head clipping.
       </p>
 
-      <!-- TWO RESULT IMAGES: replace src with your near_* image filenames -->
+      <!-- TWO RESULT IMAGES; replace src with your NEAR images (near_*.png / .jpg) -->
       <div class="row g-4 mb-4">
         <div class="col-md-6 text-center">
           <img
             src="near_1.png"
-            alt="Shapley NEAR vs baselines on hallucination detection benchmarks"
+            alt="Shapley NEAR vs baseline hallucination detectors across QA datasets"
             class="img-fluid rounded shadow-sm"
             style="max-width: 100%; height: auto;"
           />
           <p class="fig-caption mt-2">
-            Shapley NEAR compared to baseline methods (e.g., P(True), Pointwise V-Information,
-            Usable LI, Semantic Entropy, Loopback Lens, INSIDE) across multiple QA datasets.
+            Example plots comparing NEAR with baselines such as P(True), PVI, Usable LI, Semantic Entropy,
+            Loopback Lens, and INSIDE on CoQA, QuAC, SQuAD v2.0, and TriviaQA.
           </p>
         </div>
         <div class="col-md-6 text-center">
           <img
             src="near_2.png"
-            alt="Layer- and head-wise analysis of information gain and hallucination types"
+            alt="Information gain analysis, Shapley aggregation, and head-level behavior"
             class="img-fluid rounded shadow-sm"
             style="max-width: 100%; height: auto;"
           />
           <p class="fig-caption mt-2">
-            Examples of attention-wise information gain, emergence of parametric and context-induced
-            hallucinations, and the impact of Shapley aggregation and head clipping.
+            Visualizations of Shapley aggregation benefits, the identification of parametric and
+            context-induced hallucinations, and the impact of pruning heads with consistently negative
+            information gain.
           </p>
         </div>
       </div>
@@ -568,16 +566,20 @@
             <div class="card-body">
               <h5 class="card-title">Hallucination Detection Performance</h5>
               <p class="card-text">
-                Across four QA benchmarks (CoQA, QuAC, SQuAD v2.0, and TriviaQA) and three
-                LLMs (Qwen2.5-3B, LLaMA3.1-8B, OPT-6.7B), Shapley NEAR consistently outperforms
-                strong baselines in AUROC, Kendall’s τ, and Pearson correlation. Improvements
-                over methods like INSIDE, Loopback Lens, and Semantic Entropy range from
-                roughly 8–13% in AUROC and 10–15% in rank correlation metrics.
+                NEAR is evaluated on CoQA, QuAC, SQuAD v2.0 (unanswerable subset), and TriviaQA (rc-nocontext)
+                using Qwen2.5-3B, LLaMA3.1-8B, and OPT-6.7B. Metrics include AUROC, Kendall’s τ, and Pearson
+                correlation between NEAR scores and ground-truth answerability labels. :contentReference[oaicite:3]{index=3}
               </p>
               <p class="card-text">
-                The gains are especially clear on SQuAD, where models find the dataset relatively
-                easier, and NEAR’s fine-grained attention-wise signals translate into more accurate
-                separation between trustworthy and hallucinated answers.
+                Across all models and datasets, NEAR consistently outperforms strong baselines, often surpassing
+                INSIDE by about 8–13% in AUROC and by 10–15% in rank and linear correlation metrics. The best
+                scores are obtained on SQuAD, suggesting that when the underlying QA task is easier, NEAR’s
+                attention-wise signal translates into particularly clean separation between confident, correct
+                answers and hallucinations.
+              </p>
+              <p class="card-text">
+                Additional experiments on larger models (e.g., LLaMA-3.1-70B and Phi-3-Medium-14B) and long-context
+                benchmarks such as LongRA further support NEAR’s robustness and scalability (shown in the appendix).
               </p>
             </div>
           </div>
@@ -586,19 +588,23 @@
         <div class="col-lg-6">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">Ablations, Thresholds, and Head Clipping</h5>
+              <h5 class="card-title">Shapley Aggregation, Thresholds, and Head Clipping</h5>
               <p class="card-text">
-                Ablation studies show that (i) aggregating across all layers is crucial, since usable
-                information accumulates progressively and is not confined to the final layer, and
-                (ii) Shapley aggregation substantially improves ranking quality compared to a greedy
-                information gain baseline.
+                Replacing the Shapley aggregation with a simple greedy ranking over sentence-level information gain
+                reduces performance. With Shapley, AUROC, Kendall’s τ, and PCC on CoQA + LLaMA3.1-8B improve
+                substantially (e.g., AUROC from ≈0.79 to ≈0.85 and τ from ≈0.51 to ≈0.66), showing that coalition-aware
+                attribution is important for stable rankings.
               </p>
               <p class="card-text">
-                The authors also study how to threshold NEAR scores, finding that a first-quartile
-                (Q1) threshold gives robust separation between answerable and hallucinated cases
-                across models and datasets. Finally, pruning heads with strongly negative information
-                gain further improves AUROC, accuracy, and ROUGE-L, highlighting the practical
-                value of NEAR-driven head clipping.
+                Sweeping NEAR thresholds across quantiles reveals that the first quartile (Q1) gives the most reliable
+                separation between answerable and hallucinated cases across all datasets and models, while thresholds
+                near 0 or far into the upper tail hurt accuracy.
+              </p>
+              <p class="card-text">
+                Finally, clipping heads whose information gain falls below a strong negative threshold leads to
+                additional gains. On CoQA with LLaMA3.1-8B, NEAR+Head Clipping improves AUROC and accuracy over both
+                NEAR alone and INSIDE, and yields better ROUGE-L alignment between generated and reference answers,
+                highlighting the practical usefulness of NEAR-driven structural interventions.
               </p>
             </div>
           </div>
@@ -612,7 +618,7 @@
     <div class="container">
       <h2 class="section-title">BibTeX</h2>
       <p class="section-subtitle">
-        Citation information can be added here once the paper is public and de-anonymized.
+        Add the final BibTeX entry here once the paper is public and de-anonymized.
       </p>
 
       <pre class="bibtex-block">
@@ -634,7 +640,7 @@
         <div class="col-md-8">
           <span>
             © <span id="year"></span> Shapley NEAR Authors. All rights
-            reserved. Webpage adapted by <strong>Your Name</strong>.
+            reserved. Webpage developed by <strong>Your Name</strong>.
           </span>
         </div>
         <div class="col-md-4 text-md-end">
@@ -654,4 +660,3 @@
   </script>
 </body>
 </html>
-

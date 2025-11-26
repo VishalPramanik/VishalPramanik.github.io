@@ -233,6 +233,46 @@
       font-size: 0.95rem;
     }
 
+    /* Project Webpages – Tabs */
+    .project-tabs {
+      margin-top: 1rem;
+    }
+
+    .tab-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tab-button {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid #30363d;
+      background-color: #161b22;
+      color: #c9d1d9;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .tab-button:hover {
+      background-color: #1c2128;
+    }
+
+    .tab-button.active {
+      background-color: #238636;
+      border-color: #238636;
+    }
+
+    .tab-content {
+      display: none;
+      font-size: 0.95rem;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
     /* Footer */
     .footer {
       text-align: center;
@@ -293,15 +333,9 @@
           </div>
 
           <!-- Avatar / Initials -->
-          
-
-         <div class="hero-avatar">
-  <img src="vishal.png" alt="Vishal Pramanik" style="width: 150px; height: 150px; border-radius: 60%; object-fit: cover;">
-</div>
-
-
-
-          
+          <div class="hero-avatar">
+            <img src="vishal.png" alt="Vishal Pramanik" style="width: 150px; height: 150px; border-radius: 60%; object-fit: cover;">
+          </div>
         </div>
       </div>
     </div>
@@ -353,127 +387,123 @@
 
 
     <div class="section" id="research">
-  <div class="section-inner">
-    <h2 class="section-title">Research Experience</h2>
-    
-    <div class="experience-item">
-      <h3>PhD Graduate Research Assistant</h3>
-      <p class="institution">University of Florida</p>
-      <p class="year">2025 - Present</p>
-      <ul>
-        <li>Conduct research on explainability, security, and unlearning in deep learning models</li>
-        <li>Develop novel attribution methods to enhance interpretability of LLMs and vision models</li>
-        <li>Focus on mechanistic and circuit-based approaches to understand inner workings of neural networks</li>
-        <li>Explore applications spanning adversarial robustness, jailbreak analysis, and machine unlearning in both vision and language domains</li>
-        <li>Investigate hyperdimensional computing frameworks for efficient representation learning and unlearning</li>
-        <li>Leverage attribution techniques to provide deeper insights into model behavior and decision-making processes</li>
-      </ul>
-    </div>
-    
-    <br>
-    
-    <div class="experience-item">
-      <h3>Master's Research Assistant</h3>
-      <p class="institution">Indian Institute of Technology Bombay</p>
-      <p class="year">2020 - 2022</p>
-      <ul>
-        <li>Conducted research in Natural Language Processing using transformer-based models</li>
-        <li>Developed novel techniques for language generation, sentiment analysis, information extraction, and machine translation</li>
-        <li>Developed end-to-end movie script generation system for ErosNow, enabling users to generate scripts from storylines</li>
-        <li>Developed novel AEG model using collaborative and transfer learning, achieving 85.50% accuracy and outperforming state-of-the-art approaches</li>
-        <li>Published research paper "Hey AI, Can You Grade My Essay?: Automatic Essay Grading" in ICAAAIML 2025 - Springer Proceeding</li>
-      </ul>
-    </div>
-    
-  </div>
-</div>
-
-<div class="section" id="experience">
-  <div class="section-inner">
-    <h2 class="section-title">Technical Experience</h2>
-    
-    <div class="experience-item">
-      <h3>Silicon Firmware Development Engineer</h3>
-      <p class="institution">Intel Bangalore, India</p>
-      <p class="year">July 2022 - July 2024</p>
-      <ul>
-        <li>Contributed to server development team, specializing in main memory initialization during server booting process</li>
-        <li>Developed initialization processes for unregistered DIMMs, including generating reference voltage tables for memory training</li>
-        <li>Contributed to Memory Reference Code (MRC) development for servers with DDR5 DIMMs, focusing on boot flow, error handling, memory mapping, temperature control, and performance optimization</li>
-        <li>Worked with validation team to design and conduct stress tests on various delay parameters of server processors</li>
-        <li>Optimized server overclocking by adapting technology from standalone workstations, enhancing system throughput and performance</li>
-      </ul>
-    </div>
-    
-  </div>
-</div>
-    
-
-<div class="section" id="publications">
-  <div class="section-inner">
-    <h2 class="section-title">Publications</h2>
-    
-    <div class="publication-item">
-      <h3>Hessian-Enhanced Token Attribution (HETA): Interpreting Autoregressive Language Models</h3>
-      <p class="authors">Vishal Pramanik, Maisha Maliha, and Sumit Kumar Jha</p>
-      <p class="venue">NeurIPS 2025 Workshop: First Workshop on Foundations of Reasoning in Language Models</p>
-    </div>
-    
-    <br>
-    
-    <div class="publication-item">
-      <h3>Jailbreaking the Security of LLMs: How Targeted Nullspace Perturbations Unmask Hidden Vulnerabilities</h3>
-      <p class="authors">Vishal Pramanik, Maisha Maliha, Susmit Jha, and Sumit Kumar Jha</p>
-      <p class="venue">AAAI-26 Workshop on Artificial Intelligence for Cyber Security (AICS), 2026</p>
-    </div>
-    
-    <br>
-    
-    <div class="publication-item">
-      <h3>SPUN: Spectral Projection–based UNlearning in Hyperdimensional Computing</h3>
-      <p class="authors">Vishal Pramanik, Olivera Kotevska, Alvaro Velasquez, Susmit Jha, and Sumit Kumar Jha</p>
-      <p class="venue">AAAI-26 Workshop on Artificial Intelligence for Cyber Security (AICS), 2026</p>
-    </div>
-    
-    <br>
-    
-    <div class="publication-item">
-      <h3>Fact or Hallucination? An Entropy-Based Framework for Attention-Wise Usable Information in LLMs</h3>
-      <p class="authors">Vishal Pramanik, Alvaro Velasquez, Susmit Jha, and Sumit Kumar Jha</p>
-      <p class="venue">AAAI-26 Workshop on Artificial Intelligence for Cyber Security (AICS), 2026</p>
-    </div>
-    
-    <br>
-    
-    <div class="publication-item">
-      <h3>Kurosawa: A Script Writer's Assistant</h3>
-      <p class="authors">Gandhi Prerak, Pramanik Vishal, and Bhattacharyya Pushpak</p>
-      <p class="venue">ACL Anthology | <a href="#" target="_blank">PDF</a></p>
-    </div>
-    
-    <br>
-
-    <div class="publication-item">
-      <h3>Can Linear Attributions Explain Nonlinear LLMs?</h3>
-      <p class="authors">Vishal Pramanik, Maisha Maliha, Nathaniel D. Bastian, Sumit Kumar Jha</p>
-      <p class="venue">AAAI 2026 Workshop on Trust and Control in Agentic AI</p>
+      <div class="section-inner">
+        <h2 class="section-title">Research Experience</h2>
+        
+        <div class="experience-item">
+          <h3>PhD Graduate Research Assistant</h3>
+          <p class="institution">University of Florida</p>
+          <p class="year">2025 - Present</p>
+          <ul>
+            <li>Conduct research on explainability, security, and unlearning in deep learning models</li>
+            <li>Develop novel attribution methods to enhance interpretability of LLMs and vision models</li>
+            <li>Focus on mechanistic and circuit-based approaches to understand inner workings of neural networks</li>
+            <li>Explore applications spanning adversarial robustness, jailbreak analysis, and machine unlearning in both vision and language domains</li>
+            <li>Investigate hyperdimensional computing frameworks for efficient representation learning and unlearning</li>
+            <li>Leverage attribution techniques to provide deeper insights into model behavior and decision-making processes</li>
+          </ul>
+        </div>
+        
+        <br>
+        
+        <div class="experience-item">
+          <h3>Master's Research Assistant</h3>
+          <p class="institution">Indian Institute of Technology Bombay</p>
+          <p class="year">2020 - 2022</p>
+          <ul>
+            <li>Conducted research in Natural Language Processing using transformer-based models</li>
+            <li>Developed novel techniques for language generation, sentiment analysis, information extraction, and machine translation</li>
+            <li>Developed end-to-end movie script generation system for ErosNow, enabling users to generate scripts from storylines</li>
+            <li>Developed novel AEG model using collaborative and transfer learning, achieving 85.50% accuracy and outperforming state-of-the-art approaches</li>
+            <li>Published research paper "Hey AI, Can You Grade My Essay?: Automatic Essay Grading" in ICAAAIML 2025 - Springer Proceeding</li>
+          </ul>
+        </div>
+        
+      </div>
     </div>
 
-    <br>
-    
-    <div class="publication-item">
-      <h3>Human Fatality Estimation in Aircraft Accidents</h3>
-      <p class="authors">Vishal Pramanik, Maisha Maliha, and Sumit Kumar Jha</p>
-      <p class="venue">IEEE National Aerospace and Electronics Conference (NAECON), 2024 | <a href="#" target="_blank">PDF</a></p>
+    <div class="section" id="experience">
+      <div class="section-inner">
+        <h2 class="section-title">Technical Experience</h2>
+        
+        <div class="experience-item">
+          <h3>Silicon Firmware Development Engineer</h3>
+          <p class="institution">Intel Bangalore, India</p>
+          <p class="year">July 2022 - July 2024</p>
+          <ul>
+            <li>Contributed to server development team, specializing in main memory initialization during server booting process</li>
+            <li>Developed initialization processes for unregistered DIMMs, including generating reference voltage tables for memory training</li>
+            <li>Contributed to Memory Reference Code (MRC) development for servers with DDR5 DIMMs, focusing on boot flow, error handling, memory mapping, temperature control, and performance optimization</li>
+            <li>Worked with validation team to design and conduct stress tests on various delay parameters of server processors</li>
+            <li>Optimized server overclocking by adapting technology from standalone workstations, enhancing system throughput and performance</li>
+          </ul>
+        </div>
+        
+      </div>
     </div>
-    
-  </div>
-</div>
-    
-    
+        
 
+    <div class="section" id="publications">
+      <div class="section-inner">
+        <h2 class="section-title">Publications</h2>
+        
+        <div class="publication-item">
+          <h3>Hessian-Enhanced Token Attribution (HETA): Interpreting Autoregressive Language Models</h3>
+          <p class="authors">Vishal Pramanik, Maisha Maliha, and Sumit Kumar Jha</p>
+          <p class="venue">NeurIPS 2025 Workshop: First Workshop on Foundations of Reasoning in Language Models</p>
+        </div>
+        
+        <br>
+        
+        <div class="publication-item">
+          <h3>Jailbreaking the Security of LLMs: How Targeted Nullspace Perturbations Unmask Hidden Vulnerabilities</h3>
+          <p class="authors">Vishal Pramanik, Maisha Maliha, Susmit Jha, and Sumit Kumar Jha</p>
+          <p class="venue">AAAI-26 Workshop on Artificial Intelligence for Cyber Security (AICS), 2026</p>
+        </div>
+        
+        <br>
+        
+        <div class="publication-item">
+          <h3>SPUN: Spectral Projection–based UNlearning in Hyperdimensional Computing</h3>
+          <p class="authors">Vishal Pramanik, Olivera Kotevska, Alvaro Velasquez, Susmit Jha, and Sumit Kumar Jha</p>
+          <p class="venue">AAAI-26 Workshop on Artificial Intelligence for Cyber Security (AICS), 2026</p>
+        </div>
+        
+        <br>
+        
+        <div class="publication-item">
+          <h3>Fact or Hallucination? An Entropy-Based Framework for Attention-Wise Usable Information in LLMs</h3>
+          <p class="authors">Vishal Pramanik, Alvaro Velasquez, Susmit Jha, and Sumit Kumar Jha</p>
+          <p class="venue">AAAI-26 Workshop on Artificial Intelligence for Cyber Security (AICS), 2026</p>
+        </div>
+        
+        <br>
+        
+        <div class="publication-item">
+          <h3>Kurosawa: A Script Writer's Assistant</h3>
+          <p class="authors">Gandhi Prerak, Pramanik Vishal, and Bhattacharyya Pushpak</p>
+          <p class="venue">ACL Anthology | <a href="#" target="_blank">PDF</a></p>
+        </div>
+        
+        <br>
 
-    
+        <div class="publication-item">
+          <h3>Can Linear Attributions Explain Nonlinear LLMs?</h3>
+          <p class="authors">Vishal Pramanik, Maisha Maliha, Nathaniel D. Bastian, Sumit Kumar Jha</p>
+          <p class="venue">AAAI 2026 Workshop on Trust and Control in Agentic AI</p>
+        </div>
+
+        <br>
+        
+        <div class="publication-item">
+          <h3>Human Fatality Estimation in Aircraft Accidents</h3>
+          <p class="authors">Vishal Pramanik, Maisha Maliha, and Sumit Kumar Jha</p>
+          <p class="venue">IEEE National Aerospace and Electronics Conference (NAECON), 2024 | <a href="#" target="_blank">PDF</a></p>
+        </div>
+        
+      </div>
+    </div>
+        
     <!-- SKILLS SECTION -->
     <div class="section" id="skills">
       <div class="section-inner">
@@ -495,62 +525,89 @@
             <div class="skill-pill">NLTK</div>
             <div class="skill-pill">Java</div>
             <div class="skill-pill">JavaScript</div>
-            <!-- Add or remove as needed -->
           </div>
         </div>
       </div>
-</div>
-
-
-  <div class="section" id="achievements">
-  <div class="section-inner">
-    <h2 class="section-title">Awards & Achievements</h2>
-    <div class="about-text">
-      <ul>
-        <li>
-          <strong>Certificate of Excellence in Research</strong> - Computer Science Department, 
-          Indian Institute of Technology Bombay, for master's thesis on Natural Language Processing 
-          using Large Language Models
-        </li>
-        <li>
-          <strong>Second Place Award</strong> - IEEE National Aerospace and Electronics Conference 
-          (NAECON) 2024, for poster presentation on "Human Fatality Estimation in Aircraft Accidents"
-        </li>
-      </ul>
     </div>
-  </div>
-</div>
 
-    
+    <div class="section" id="achievements">
+      <div class="section-inner">
+        <h2 class="section-title">Awards & Achievements</h2>
+        <div class="about-text">
+          <ul>
+            <li>
+              <strong>Certificate of Excellence in Research</strong> - Computer Science Department, 
+              Indian Institute of Technology Bombay, for master's thesis on Natural Language Processing 
+              using Large Language Models
+            </li>
+            <li>
+              <strong>Second Place Award</strong> - IEEE National Aerospace and Electronics Conference 
+              (NAECON) 2024, for poster presentation on "Human Fatality Estimation in Aircraft Accidents"
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT WEBPAGES SECTION (NEW) -->
+    <div class="section" id="project-webpages">
+      <div class="section-inner">
+        <h2 class="section-title">Project Webpages</h2>
+        <div class="project-tabs">
+          <div class="tab-buttons">
+            <button class="tab-button active" data-tab="data-attribution">Data Attribution</button>
+            <button class="tab-button" data-tab="near-hallucination-score">NEAR Hallucination Score</button>
+          </div>
+          <div class="tab-contents">
+            <div class="tab-content active" id="data-attribution">
+              <p>
+                <a href="https://vishalpramanik.github.io/hetaproject.html" target="_blank">
+                  Open Data Attribution Project
+                </a>
+              </p>
+            </div>
+            <div class="tab-content" id="near-hallucination-score">
+              <p>
+                <a href="https://vishalpramanik.github.io/NEARproject.html" target="_blank">
+                  Open NEAR Hallucination Score Project
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
    <!-- CONTACT SECTION -->
-<div class="section" id="contact">
-  <div class="section-inner">
-    <h2 class="section-title">Contact</h2>
-    <div class="contact-grid">
-      <div>
-        <div class="contact-item-label">Email</div>
-        <div class="contact-item-value">
-          <a href="mailto:vishalpramanik@ufl.edu">vishalpramanik@ufl.edu</a>
+    <div class="section" id="contact">
+      <div class="section-inner">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-grid">
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value">
+              <a href="mailto:vishalpramanik@ufl.edu">vishalpramanik@ufl.edu</a>
+            </div>
+          </div>
+          <div>
+            <div class="contact-item-label">LinkedIn</div>
+            <div class="contact-item-value">
+              <a href="https://www.linkedin.com/in/vishal-pramanik/" target="_blank">
+                linkedin.com/in/vishal-pramanik
+              </a>
+            </div>
+          </div>
+          <div>
+            <div class="contact-item-label">Google Scholar</div>
+            <div class="contact-item-value">
+              <a href="https://scholar.google.com/citations?hl=en&user=8CqJqIEAAAAJ" target="_blank">
+                Google Scholar Profile
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-      <div>
-        <div class="contact-item-label">LinkedIn</div>
-        <div class="contact-item-value">
-          <a href="https://www.linkedin.com/in/vishal-pramanik/" target="_blank">
-            linkedin.com/in/vishal-pramanik
-          </a>
-        </div>
-      </div>
-      <div>
-        <div class="contact-item-label">Google Scholar</div>
-        <div class="contact-item-value">
-          <a href="https://scholar.google.com/citations?hl=en&user=8CqJqIEAAAAJ" target="_blank">
-            Google Scholar Profile
-          </a>
-        </div>
-      </div>
-  </div>
-</div>
+    </div>
 
     <!-- FOOTER -->
     <div class="footer">
@@ -558,10 +615,25 @@
     </div>
   </div>
 
-  <!-- Small script to auto-update year -->
+  <!-- Small script to auto-update year & handle tabs -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const targetId = button.getAttribute("data-tab");
+
+        tabButtons.forEach(btn => btn.classList.remove("active"));
+        tabContents.forEach(content => content.classList.remove("active"));
+
+        button.classList.add("active");
+        const target = document.getElementById(targetId);
+        if (target) target.classList.add("active");
+      });
+    });
   </script>
 </body>
 </html>
-

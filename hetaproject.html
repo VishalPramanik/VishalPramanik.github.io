@@ -392,6 +392,13 @@
                 <li>Select the index or position of the target token.</li>
                 <li>Inspect how HETA distributes attribution across the context.</li>
               </ul>
+              <p class="mb-0">
+                You can try the demo in the box beside, or you can open the full demo page
+                in a new tab
+                <a href="https://bbddc68e11073f7781.gradio.live/" target="_blank" rel="noopener noreferrer">
+                  here
+                </a>.
+              </p>
             </div>
           </div>
         </div>
@@ -455,7 +462,7 @@
     </div>
   </section>
 
-  <!-- METHOD OVERVIEW -->
+  <!-- METHOD OVERVIEW (TEXT-ONLY, NO IMAGES) -->
   <section id="overview">
     <div class="container">
       <h2 class="section-title">Method Overview</h2>
@@ -467,12 +474,6 @@
       <div class="row g-4 mb-4">
         <div class="col-lg-6">
           <div class="card h-100">
-            <!-- Replace with your real image if you have one -->
-            <img
-              src="assets/images/heta_semantic_flow.png"
-              class="card-img-top"
-              alt="Semantic flow diagram placeholder"
-            />
             <div class="card-body">
               <h5 class="card-title">Semantic Transition Influence</h5>
               <p class="card-text">
@@ -482,18 +483,18 @@
                 on valid paths to the target. It acts as a causal gate: only tokens that
                 can structurally influence the target are eligible to receive attribution.
               </p>
+              <p class="card-text">
+                This component respects the temporal and structural constraints of
+                autoregressive decoding and ensures that attributions are only assigned to
+                context tokens that could have influenced the target via the network’s
+                attention pathways.
+              </p>
             </div>
           </div>
         </div>
 
         <div class="col-lg-6">
           <div class="card h-100">
-            <!-- Replace with your real image if you have one -->
-            <img
-              src="assets/images/heta_hessian_kl.png"
-              class="card-img-top"
-              alt="Hessian and KL impact diagram placeholder"
-            />
             <div class="card-body">
               <h5 class="card-title">Curvature & Information Gain</h5>
               <p class="card-text">
@@ -501,9 +502,13 @@
                 Hessian–vector products using a Hutchinson estimator, avoiding explicit
                 construction of the full Hessian. In parallel, it measures how the target
                 distribution changes when each token is masked, via KL divergence between
-                the original and perturbed predictions. The final score multiplies the
-                causal gate with a weighted combination of curvature and information terms,
-                yielding a target-conditioned importance measure for each token.
+                the original and perturbed predictions.
+              </p>
+              <p class="card-text">
+                The final score multiplies the causal gate with a weighted combination of
+                curvature and information terms, yielding a target-conditioned importance
+                measure for each token that reflects both local and global influences on
+                the prediction.
               </p>
             </div>
           </div>
@@ -513,12 +518,6 @@
       <div class="row g-4">
         <div class="col-lg-12">
           <div class="card h-100">
-            <!-- Replace with your real image if you have one -->
-            <img
-              src="assets/images/heta_pipeline_full.png"
-              class="card-img-top"
-              alt="Full HETA pipeline placeholder"
-            />
             <div class="card-body">
               <h5 class="card-title">Putting It All Together</h5>
               <p class="card-text">
@@ -527,6 +526,12 @@
                 geometric (curvature), and information-theoretic (KL divergence) views,
                 HETA provides explanations that are both theoretically grounded and
                 empirically robust for decoder-only language models.
+              </p>
+              <p class="card-text">
+                This design allows HETA to faithfully highlight tokens that are truly
+                responsible for a given prediction, rather than merely correlating with
+                attention weights or gradient magnitudes. As a result, it produces more
+                stable and interpretable attribution maps across tasks and model scales.
               </p>
             </div>
           </div>
@@ -540,18 +545,25 @@
     <div class="container">
       <h2 class="section-title">Results</h2>
       <p class="section-subtitle">
-        Summary of experimental findings across models, benchmarks, and curated evaluation datasets.
+        Summary of experimental findings and an example visualization of HETA attributions.
       </p>
+
+      <!-- SINGLE EXAMPLE IMAGE: HETA_example.jpg in SAME folder -->
+      <div class="text-center mb-4">
+        <img
+          src="HETA_example.jpg"
+          alt="Example of HETA token-level attribution visualization"
+          class="img-fluid rounded shadow-sm"
+        />
+        <p class="fig-caption mt-2">
+          Example of HETA token-level attribution: tokens are coloured by their importance
+          for a chosen target position, with darker green indicating higher attribution.
+        </p>
+      </div>
 
       <div class="row g-4">
         <div class="col-lg-6">
           <div class="card h-100">
-            <!-- Replace with your actual benchmark figure -->
-            <img
-              src="assets/images/heta_benchmarks.png"
-              class="card-img-top"
-              alt="Benchmark results placeholder"
-            />
             <div class="card-body">
               <h5 class="card-title">Attribution Faithfulness</h5>
               <p class="card-text">
@@ -561,18 +573,17 @@
                 strong for long-range reasoning tasks, where capturing deep context
                 dependencies is crucial.
               </p>
+              <p class="card-text">
+                These results indicate that HETA’s scores more accurately reflect which
+                tokens truly matter for the target prediction, rather than simply tracking
+                surface-level correlations or noisy gradient signals.
+              </p>
             </div>
           </div>
         </div>
 
         <div class="col-lg-6">
           <div class="card h-100">
-            <!-- Replace with your curated dataset / robustness figure -->
-            <img
-              src="assets/images/heta_curated_dataset.png"
-              class="card-img-top"
-              alt="Curated dataset and robustness placeholder"
-            />
             <div class="card-body">
               <h5 class="card-title">Alignment & Robustness</h5>
               <p class="card-text">
@@ -582,6 +593,12 @@
                 substantially outperforms all baselines, while also showing higher
                 stability under input noise, syntactic rephrasings, and changes in decoding
                 hyperparameters.
+              </p>
+              <p class="card-text">
+                Together, these findings suggest that HETA provides attributions that are
+                more closely aligned with human judgments about which parts of the context
+                support a given answer, and that its explanations are robust to small
+                perturbations in the prompt or decoding setup.
               </p>
             </div>
           </div>

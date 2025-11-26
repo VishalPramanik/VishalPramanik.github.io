@@ -113,7 +113,7 @@
       border-color: #6b7280;
     }
 
-    /* Figure in Abstract section: full width, responsive across devices */
+    /* Figure in Abstract section */
     .heta-figure-container {
       width: 100%;
       max-width: 1200px;
@@ -274,12 +274,11 @@
     </div>
   </header>
 
-  <!-- ABSTRACT (WITH FULL-WIDTH JPG FIGURE) -->
+  <!-- ABSTRACT (WITH FIGURE) -->
   <section id="abstract">
     <div class="container">
       <h2 class="section-title">Abstract</h2>
       
-      <!-- MAIN HETA FIGURE: JPG in SAME folder as this HTML -->
       <div class="heta-figure-container">
         <img
           src="HETA_fig_webpage.jpg"
@@ -293,7 +292,6 @@
         </p>
       </div>
 
-      <!-- ABSTRACT TEXT -->
       <p>
         Decoder-only language models generate impressive text, but their decisions are
         difficult to interpret. Most existing attribution methods were designed for
@@ -548,12 +546,13 @@
         Summary of experimental findings and an example visualization of HETA attributions.
       </p>
 
-      <!-- SINGLE EXAMPLE IMAGE: HETA_example.jpg in SAME folder -->
+      <!-- SINGLE EXAMPLE IMAGE: HETA_fig.jpg in SAME folder, at 30% width -->
       <div class="text-center mb-4">
         <img
           src="HETA_fig.jpg"
           alt="Example of HETA token-level attribution visualization"
           class="img-fluid rounded shadow-sm"
+          style="max-width: 30%; height: auto;"
         />
         <p class="fig-caption mt-2">
           Example of HETA token-level attribution: tokens are coloured by their importance

@@ -113,9 +113,9 @@
       color: #ffffff;
     }
 
-    .teaser-card img {
-      border-radius: 0.9rem;
-      border: 1px solid var(--accent-soft);
+    .teaser-card embed {
+      border-radius: 0.9rem 0.9rem 0 0;
+      border-bottom: 1px solid var(--accent-soft);
     }
 
     section {
@@ -271,19 +271,20 @@
         </div>
 
         <div class="col-lg-5">
-          <!-- Teaser Figure -->
+          <!-- Teaser Figure: main overview figure from same folder -->
           <div class="card teaser-card shadow-sm">
-            <!-- Replace src with your teaser image path -->
-            <img
-              src="HETA_fig (1).pdf"
+            <!-- The PDF figure is in the same folder as this HTML file -->
+            <embed
+              src="HETA_fig_webpage.pdf"
+              type="application/pdf"
               class="card-img-top"
-              alt="HETA overview diagram placeholder"
+              style="width:100%; height:340px;"
             />
             <div class="card-body">
               <p class="fig-caption mb-0">
-                High-level view of HETA: semantic flow traces causal paths, curvature measures
-                second-order sensitivity, and KL divergence captures information loss under
-                token masking. Replace this image with your actual figure.
+                Overview of HETA: semantic influence (target-conditioned attention–value rollout),
+                curvature sensitivity (Hessian-based estimates), and information gain (KL divergence
+                under token masking) combine to form the final attribution score.
               </p>
             </div>
           </div>
@@ -480,7 +481,7 @@
       <div class="row g-4 mb-4">
         <div class="col-lg-6">
           <div class="card h-100">
-            <!-- Replace with your illustration -->
+            <!-- Semantic flow panel placeholder (you can replace image if desired) -->
             <img
               src="assets/images/heta_semantic_flow.png"
               class="card-img-top"
@@ -502,7 +503,7 @@
 
         <div class="col-lg-6">
           <div class="card h-100">
-            <!-- Replace with your illustration -->
+            <!-- Curvature & KL panel placeholder -->
             <img
               src="assets/images/heta_hessian_kl.png"
               class="card-img-top"
@@ -527,7 +528,7 @@
       <div class="row g-4">
         <div class="col-lg-12">
           <div class="card h-100">
-            <!-- Replace with your illustration -->
+            <!-- Full pipeline placeholder -->
             <img
               src="assets/images/heta_pipeline_full.png"
               class="card-img-top"
@@ -563,7 +564,7 @@
       <div class="row g-4">
         <div class="col-lg-6">
           <div class="card h-100">
-            <!-- Replace with your results figure -->
+            <!-- Benchmark results placeholder -->
             <img
               src="assets/images/heta_benchmarks.png"
               class="card-img-top"
@@ -585,7 +586,7 @@
 
         <div class="col-lg-6">
           <div class="card h-100">
-            <!-- Replace with your qualitative figure -->
+            <!-- Curated dataset / robustness placeholder -->
             <img
               src="assets/images/heta_curated_dataset.png"
               class="card-img-top"

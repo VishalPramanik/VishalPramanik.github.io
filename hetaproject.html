@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Header Project | Research Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background-color: #f5f5f7;
+    }
+
+    .navbar {
+      box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08);
+      background-color: #ffffff;
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .hero-section {
+      padding: 4.5rem 0 2.5rem;
+      background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #f5f5f7 60%,
+        #f5f5f7 100%
+      );
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: #6b7280;
+    }
+
+    .author-list a {
+      text-decoration: none;
+    }
+
+    .author-list a:hover {
+      text-decoration: underline;
+    }
+
+    .badge-equal {
+      font-size: 0.7rem;
+      background-color: #e5e7eb;
+      color: #4b5563;
+    }
+
+    .cta-buttons .btn {
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .teaser-card img {
+      border-radius: 0.75rem;
+      border: 1px solid #e5e7eb;
+    }
+
+    section {
+      padding: 3rem 0;
+      background-color: #f5f5f7;
+    }
+
+    section:nth-of-type(even) {
+      background-color: #ffffff;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: #6b7280;
+      margin-bottom: 1.5rem;
+    }
+
+    .fig-caption {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .resource-card {
+      border-radius: 0.75rem;
+      border: 1px solid #e5e7eb;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      height: 100%;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background-color: #eef2ff;
+      color: #4f46e5;
+      margin-right: 0.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    pre.bibtex-block {
+      background-color: #111827;
+      color: #e5e7eb;
+      border-radius: 0.5rem;
+      padding: 1rem 1.2rem;
+      font-size: 0.85rem;
+      overflow-x: auto;
+    }
+
+    footer {
+      padding: 2rem 0 2.5rem;
+      font-size: 0.85rem;
+      color: #6b7280;
+      background-color: #ffffff;
+      border-top: 1px solid #e5e7eb;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="#">Header Project</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#abstract">Paper</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#archive">Archive & Dataset</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#demo">Input / Output Demo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#overview">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#results">Results</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#bibtex">BibTeX</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO / TITLE -->
+  <header class="hero-section">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <h1 class="hero-title mb-3">
+            Header Project: Learning on Model Weights with Tree Experts
+          </h1>
+          <p class="hero-subtitle mb-3">
+            <span class="author-list">
+              <a href="#">First Author*</a>,
+              <a href="#">Second Author*</a>,
+              <a href="#">Third Author</a>,
+              <a href="#">Fourth Author</a>
+            </span>
+            <span class="badge badge-equal ms-2">* equal contribution</span>
+          </p>
+          <p class="hero-subtitle mb-1">
+            <strong>Your Lab / Institution</strong>
+          </p>
+          <p class="hero-subtitle mb-3">Conference Name, Year</p>
+
+          <div class="cta-buttons mb-3">
+            <!-- Update href targets to your real links -->
+            <a href="assets/paper.pdf" class="btn btn-primary" target="_blank">
+              Paper (PDF)
+            </a>
+            <a href="#" class="btn btn-outline-secondary disabled">
+              Code – coming soon
+            </a>
+            <a href="#" class="btn btn-outline-primary" target="_blank">
+              arXiv
+            </a>
+            <a href="#" class="btn btn-outline-success" target="_blank">
+              Dataset
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <!-- Teaser Figure -->
+          <div class="card teaser-card shadow-sm">
+            <!-- Replace src with your teaser image path -->
+            <img
+              src="assets/images/teaser-placeholder.png"
+              class="card-img-top"
+              alt="Teaser diagram placeholder"
+            />
+            <div class="card-body">
+              <p class="fig-caption mb-0">
+                Teaser figure for the project. Replace this placeholder with
+                your actual overview illustration.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABSTRACT -->
+  <section id="abstract">
+    <div class="container">
+      <h2 class="section-title">Abstract</h2>
+      <p class="section-subtitle">
+        Replace this paragraph with the real abstract of your paper. The goal
+        here is to provide a concise, high-level summary of the problem, method,
+        and key results in a few sentences.
+      </p>
+
+      <p>
+        This is placeholder text. We investigate how neural networks can reason
+        directly on the weights of other models. Our method builds a hierarchy
+        of experts over model families, allowing downstream tasks such as model
+        classification, retrieval, and dataset attribution. The abstract section
+        should be short but self-contained, giving readers enough context to
+        decide whether they want to explore the rest of the page.
+      </p>
+      <p>
+        You can tune the length of this text to match your actual abstract. All
+        formatting is handled with standard HTML and Bootstrap utility classes,
+        so you can freely add equations, references, or links if needed.
+      </p>
+    </div>
+  </section>
+
+  <!-- ARCHIVE / DATASET / RESOURCES -->
+  <section id="archive">
+    <div class="container">
+      <h2 class="section-title">Paper Archive & Resources</h2>
+      <p class="section-subtitle">
+        Quick links to all artifacts associated with the project: archival
+        versions of the paper, code, pre-trained models, and datasets.
+      </p>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="resource-card p-3 h-100">
+            <h5 class="mb-2">Paper</h5>
+            <p class="mb-3">
+              Link to the camera-ready PDF or project report. You may also add
+              supplementary material here.
+            </p>
+            <a href="assets/paper.pdf" class="btn btn-sm btn-primary w-100">
+              Download Paper
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="resource-card p-3 h-100">
+            <h5 class="mb-2">arXiv / Archive</h5>
+            <p class="mb-3">
+              Point to the arXiv, OpenReview, or other archival copy of the
+              work.
+            </p>
+            <a href="#" class="btn btn-sm btn-outline-primary w-100">
+              View arXiv Entry
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="resource-card p-3 h-100">
+            <h5 class="mb-2">Code & Models</h5>
+            <p class="mb-3">
+              Add links to your GitHub repository and model checkpoints (e.g.,
+              Hugging Face).
+            </p>
+            <a href="#" class="btn btn-sm btn-outline-secondary w-100">
+              GitHub Repository
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="resource-card p-3 h-100">
+            <h5 class="mb-2">Dataset</h5>
+            <p class="mb-3">
+              Describe and link your dataset, including license and download
+              instructions.
+            </p>
+            <a href="#" class="btn btn-sm btn-outline-success w-100">
+              Download Dataset
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INPUT / OUTPUT DEMO -->
+  <section id="demo">
+    <div class="container">
+      <h2 class="section-title">Interactive Demo: Input / Output</h2>
+      <p class="section-subtitle">
+        This section mirrors the “try it” components of many project pages.
+        Connect this to a live demo (e.g., your HETA page) or embed a widget.
+      </p>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Try the Model</h5>
+              <p class="card-text">
+                Provide a short description of your interactive demo: what the
+                user can input (e.g., a prompt, an image, or a model weight
+                file) and what they should expect as output.
+              </p>
+              <ul class="mb-3">
+                <li>Explain any constraints on inputs.</li>
+                <li>Describe what the output represents.</li>
+                <li>
+                  Optionally show a few example inputs and corresponding
+                  outputs.
+                </li>
+              </ul>
+              <!-- Link to your live demo (e.g., heta.html or Gradio app) -->
+              <a href="heta.html" class="btn btn-primary">
+                Open Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Example Input / Output</h5>
+              <p class="card-text">
+                Use this space to show a concrete example of the model in
+                action. The layout below is just a suggestion.
+              </p>
+
+              <div class="mb-2">
+                <span class="chip">Example 1</span>
+                <span class="chip">Tree Expert</span>
+                <span class="chip">Model Retrieval</span>
+              </div>
+
+              <p class="mb-1 fw-semibold">Input</p>
+              <p class="border rounded p-2 bg-light">
+                Placeholder example input text or description goes here. Replace
+                with a real prompt or query.
+              </p>
+
+              <p class="mb-1 fw-semibold">Output</p>
+              <p class="border rounded p-2 bg-light">
+                Example output produced by your system. You can place attention
+                maps, token attributions, or retrieved models here.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW / METHOD SECTIONS -->
+  <section id="overview">
+    <div class="container">
+      <h2 class="section-title">Method Overview</h2>
+      <p class="section-subtitle">
+        High-level explanation of the approach. These blocks roughly mirror the
+        “Learning within Model Trees”, “Largest Trees”, and “Probing Experts”
+        sections from the reference page, but you can rename and rewrite them as
+        needed.
+      </p>
+
+      <div class="row g-4 mb-4">
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <!-- Replace with your illustration -->
+            <img
+              src="assets/images/overview-1.png"
+              class="card-img-top"
+              alt="Overview diagram placeholder"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Learning within Model Trees</h5>
+              <p class="card-text">
+                Describe how your method organizes models into trees or other
+                structural groups. This is placeholder text explaining the
+                motivation, intuition, and any important empirical findings.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <!-- Replace with your illustration -->
+            <img
+              src="assets/images/overview-2.png"
+              class="card-img-top"
+              alt="Tree statistics placeholder"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Model Repository Statistics</h5>
+              <p class="card-text">
+                Use this panel to summarize statistics about your dataset or
+                model collection (e.g., number of trees, parameter counts,
+                domains). Replace the image and text with your actual content.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-12">
+          <div class="card h-100">
+            <!-- Replace with your illustration -->
+            <img
+              src="assets/images/overview-3.png"
+              class="card-img-top"
+              alt="ProbeX-style architecture placeholder"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Probing Experts Architecture</h5>
+              <p class="card-text">
+                This area can be used to describe your expert architecture or
+                encoder for model weights. Explain how probes are applied to the
+                weight matrices, how the encodings are aggregated, and how the
+                final prediction head is trained. All paragraphs are placeholders
+                and can be freely replaced.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS SECTION -->
+  <section id="results">
+    <div class="container">
+      <h2 class="section-title">Results</h2>
+      <p class="section-subtitle">
+        Summarize key quantitative and qualitative results. You may insert
+        tables, plots, or retrieval visualizations here.
+      </p>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <!-- Replace with your results figure -->
+            <img
+              src="assets/images/results-1.png"
+              class="card-img-top"
+              alt="Results figure placeholder"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Quantitative Performance</h5>
+              <p class="card-text">
+                Placeholder description of the main quantitative benchmarks:
+                accuracy, retrieval performance, zero-shot transfer, or any
+                other metrics you report in the paper.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card h-100">
+            <!-- Replace with your retrieval or qualitative figure -->
+            <img
+              src="assets/images/results-2.png"
+              class="card-img-top"
+              alt="Qualitative retrieval placeholder"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Qualitative Examples</h5>
+              <p class="card-text">
+                Use this panel to show qualitative visualizations such as model
+                retrieval, token attributions, or generated outputs. The image
+                and text are placeholders that you can replace with your own
+                figures.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIBTEX -->
+  <section id="bibtex">
+    <div class="container">
+      <h2 class="section-title">BibTeX</h2>
+      <p class="section-subtitle">
+        Provide a citation block so that others can easily reference your work.
+      </p>
+
+      <pre class="bibtex-block">@inproceedings{YourKey_Year_Conference,
+  author    = {First Author and Second Author and Third Author and Fourth Author},
+  title     = {Header Project: Learning on Model Weights with Tree Experts},
+  booktitle = {Proceedings of the Conference on Awesome Machine Learning},
+  year      = {2025},
+  pages     = {1--10}
+}</pre>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row gy-2 align-items-center">
+        <div class="col-md-8">
+          <span>
+            © <span id="year"></span> Header Project Authors. All rights
+            reserved.
+          </span>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <span>
+            Template inspired by open-source academic project pages.
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // set footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

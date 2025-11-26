@@ -113,9 +113,19 @@
       color: #ffffff;
     }
 
-    .teaser-card embed {
-      border-radius: 0.9rem 0.9rem 0 0;
-      border-bottom: 1px solid var(--accent-soft);
+    /* Full-width hero figure */
+    .hero-figure-wrapper {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+    }
+
+    .hero-figure {
+      width: 100%;
+      height: min(80vh, 800px);
+      display: block;
+      border: none;
+      box-shadow: none;
+      background: transparent;
     }
 
     section {
@@ -233,15 +243,15 @@
     </div>
   </nav>
 
-  <!-- HERO / TITLE -->
+  <!-- HERO / TITLE + FULL-WIDTH FIGURE -->
   <header class="hero-section">
     <div class="container">
-      <div class="row align-items-center g-4">
-        <div class="col-lg-7">
-          <h1 class="hero-title mb-3">
+      <div class="row g-4">
+        <div class="col-12">
+          <h1 class="hero-title mb-3 text-center">
             Hessian-Enhanced Token Attribution (HETA)
           </h1>
-          <p class="hero-subtitle mb-3">
+          <p class="hero-subtitle mb-2 text-center">
             <span class="author-list">
               <a href="#">Vishal Pramanik*</a>,
               <a href="#">Maisha Maliha*</a>,
@@ -249,14 +259,14 @@
             </span>
             <span class="badge badge-equal ms-2">* equal contribution</span>
           </p>
-          <p class="hero-subtitle mb-1">
+          <p class="hero-subtitle mb-1 text-center">
             <strong>Florida International University</strong>
           </p>
-          <p class="hero-subtitle mb-3">
+          <p class="hero-subtitle mb-3 text-center">
             Preprint • Under review
           </p>
 
-          <div class="cta-buttons mb-3">
+          <div class="cta-buttons mb-3 d-flex justify-content-center flex-wrap">
             <!-- Update href targets to your real links -->
             <a href="assets/heta_paper.pdf" class="btn btn-primary" target="_blank">
               Paper (PDF)
@@ -269,26 +279,21 @@
             </a>
           </div>
         </div>
+      </div>
 
-        <div class="col-lg-5">
-          <!-- Teaser Figure: main overview figure from same folder -->
-          <div class="card teaser-card shadow-sm">
-            <!-- The PDF figure is in the same folder as this HTML file -->
-            <embed
-              src="HETA_fig_webpage.pdf"
-              type="application/pdf"
-              class="card-img-top"
-              style="width:100%; height:340px;"
-            />
-            <div class="card-body">
-              <p class="fig-caption mb-0">
-                Overview of HETA: semantic influence (target-conditioned attention–value rollout),
-                curvature sensitivity (Hessian-based estimates), and information gain (KL divergence
-                under token masking) combine to form the final attribution score.
-              </p>
-            </div>
-          </div>
-        </div>
+      <!-- Main overview figure – full width, centered, no box -->
+      <div class="hero-figure-wrapper">
+        <!-- The PDF figure is in the same folder as this HTML file -->
+        <embed
+          src="HETA_fig_webpage.pdf"
+          type="application/pdf"
+          class="hero-figure"
+        />
+        <p class="fig-caption mt-2 text-center">
+          Overview of HETA: semantic influence (target-conditioned attention–value rollout),
+          curvature sensitivity (Hessian-based estimates), and information gain (KL divergence
+          under token masking) combine to form the final attribution score.
+        </p>
       </div>
     </div>
   </header>

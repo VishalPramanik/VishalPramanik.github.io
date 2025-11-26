@@ -118,19 +118,17 @@
       width: 100%;
       max-width: 1200px;
       margin: 1.5rem auto 2rem;
-    }
-
-    .heta-figure-object {
-      width: 100%;
-      height: min(80vh, 800px); /* big, but still fits on most screens */
-      border: none;
-    }
-
-    .heta-figure-fallback {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-top: 0.5rem;
       text-align: center;
+    }
+
+    .heta-figure {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+      border: none;
+      box-shadow: none;
+      background: transparent;
     }
 
     section {
@@ -236,7 +234,7 @@
     </div>
   </nav>
 
-  <!-- HERO / TITLE (NO IMAGE HERE ANYMORE) -->
+  <!-- HERO / TITLE (NO IMAGE HERE) -->
   <header class="hero-section">
     <div class="container">
       <div class="row g-4">
@@ -276,7 +274,7 @@
     </div>
   </header>
 
-  <!-- ABSTRACT (WITH FULL-WIDTH PDF FIGURE) -->
+  <!-- ABSTRACT (WITH FULL-WIDTH JPG FIGURE) -->
   <section id="abstract">
     <div class="container">
       <h2 class="section-title">Abstract</h2>
@@ -284,25 +282,18 @@
         Overview figure and a concise summary of the HETA framework and its contributions.
       </p>
 
-      <!-- MAIN HETA FIGURE: from Hata_FIG_web_page.pdf in SAME folder -->
+      <!-- MAIN HETA FIGURE: JPG in SAME folder as this HTML -->
       <div class="heta-figure-container">
         <!--
           IMPORTANT:
-          Put the file Hata_FIG_web_page.pdf in the SAME folder as this HTML file.
-          This <object> makes it responsive across devices using Bootstrap + CSS.
+          Put HETA_webpage.jpg in the SAME folder as this HTML file.
+          If your filename is different, change it in the src below.
         -->
-        <object
-          data="HETA_fig_webpage.pdf"
-          type="application/pdf"
-          class="heta-figure-object"
-        >
-          <!-- Fallback if PDF can't be shown (mobile browser etc.) -->
-          <div class="heta-figure-fallback">
-            Cannot display PDF inline. You can
-            <a href="HETA_fig_webpage.pdf" target="_blank">open the figure here</a>.
-          </div>
-        </object>
-
+        <img
+          src="HETA_webpage.jpg"
+          alt="Overview of the HETA framework"
+          class="heta-figure img-fluid"
+        />
         <p class="fig-caption mt-2 text-center">
           Overview of HETA: semantic influence (target-conditioned attention–value rollout),
           curvature sensitivity (Hessian-based estimates), and information gain (KL divergence
